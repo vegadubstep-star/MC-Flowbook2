@@ -1,0 +1,20 @@
+{
+  "name": "MC Flowbook — by Orbital Trance Records",
+  "short_name": "MC Flowbook",
+  "description": "Write, rehearse and record UK Makina MC lyrics. By Orbital Trance Records.",
+  "id": "./",
+  "start_url": "./?source=homescreen",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0e17",
+  "theme_color": "#0b0e17",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
