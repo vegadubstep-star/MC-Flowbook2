@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0b0e17" />
+<title>MC Flowbook — by Orbital Trance</title>
+<style>
+:root{--bg:#0b0e17;--panel:#131826;--panel2:#191f30;--border:#2b3449;--txt:#edf4ff;--dim:#a2b1c9;--teal:#36ebd6;--pink:#ec78df;--gold:#ffc56e;--red:#ff7a87;--r:17px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% -10%,#163847 0,transparent 35%),radial-gradient(circle at -15% 25%,#281b40 0,transparent 35%),var(--bg);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--txt);min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}h1,h2,h3,p{margin:0}.muted{color:var(--dim)}.tiny{font-size:12px}.top{position:sticky;top:0;z-index:10;background:#0b0e17e8;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}.top-inner{max-width:1320px;margin:auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(140deg,var(--teal),var(--pink));color:#081119;font-weight:950;box-shadow:0 0 26px #36ebd634;letter-spacing:-2px;font-size:18px}.brand-name{font-size:19px;font-weight:800;letter-spacing:-.6px}.brand-by{font-size:11px;letter-spacing:1.1px;color:var(--dim);text-transform:uppercase}.status{border:1px solid #345f62;background:#112b31;border-radius:40px;padding:6px 11px;font-size:12px;color:#a0fbef}.layout{max-width:1320px;margin:auto;padding:20px 18px 100px;display:grid;grid-template-columns:250px minmax(0,1fr) 335px;gap:17px;align-items:start}.card{background:linear-gradient(150deg,#171d2b,#121725);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 16px 50px #05070d22;overflow:hidden}.pad{padding:18px}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.head h2{font-size:17px;letter-spacing:-.35px}.eyebrow{color:var(--teal);font-size:10px;letter-spacing:2.3px;font-weight:800;text-transform:uppercase}.btn{background:#293249;border:1px solid #3d4a65;color:var(--txt);border-radius:10px;padding:10px 12px;font-weight:700;font-size:13px;transition:.15s;white-space:nowrap}.btn:hover{background:#37415d}.btn.primary{background:linear-gradient(115deg,#2ed9c3,#6ef1df);border-color:transparent;color:#061917}.btn.ghost{background:transparent}.btn.warn{border-color:#583343;color:#ffb9c4;background:#291923}.btn.small{padding:7px 10px;font-size:12px}.btn.full{width:100%}.btns{display:flex;flex-wrap:wrap;gap:8px}.left{position:sticky;top:89px}.project-list{display:flex;flex-direction:column;gap:7px;max-height:44vh;overflow:auto;margin:12px 0}.project{display:block;width:100%;text-align:left;padding:12px;border-radius:11px;border:1px solid transparent;background:#1b2130;color:var(--txt)}.project.selected{border-color:#3ac9ba;background:#173338}.project strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}.project span{display:block;color:var(--dim);font-size:11px;margin-top:5px}.divider{height:1px;background:var(--border);margin:16px 0}.hint{font-size:12px;color:var(--dim);line-height:1.6}.editor-col{min-width:0;display:flex;flex-direction:column;gap:16px}.title-row{display:flex;gap:10px;align-items:center;margin-bottom:12px}.field{width:100%;min-width:0;color:var(--txt);background:#0e1421;border:1px solid #303b51;border-radius:10px;padding:10px 12px}.title-field{font-size:21px;font-weight:750;letter-spacing:-.5px}.bar-row{display:grid;grid-template-columns:80px 1fr;gap:10px}.audio{padding:17px 18px}.trackline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.trackinfo{min-width:0;flex:1}.trackinfo strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.trackinfo .tiny{margin-top:2px}.audio-player{width:100%;height:40px;margin-top:13px;accent-color:var(--teal)}.loop-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px;align-items:center}.loop-status{font-size:11px;color:var(--gold)}.lyrics-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.lyrics-title{font-size:20px;font-weight:800}.count{font-size:12px;color:var(--dim);margin-top:3px}.writing-area{width:100%;min-height:470px;resize:vertical;display:block;border:1px solid #303b51;background:linear-gradient(#0d1320f5,#0f1522);border-radius:12px;padding:17px 18px;line-height:1.8;font-size:16px;color:#ecf2ff;letter-spacing:.1px;tab-size:2}.writing-area::placeholder{color:#69778e}.writing-area:focus{outline:none;border-color:#38d3c4;box-shadow:0 0 0 2px #37ebd621}.editor-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.save-state{font-size:12px;color:var(--dim)}.assist-col{display:flex;flex-direction:column;gap:16px;position:sticky;top:89px}.tabrow{display:flex;gap:5px;margin-bottom:16px;background:#0f1420;padding:5px;border-radius:11px}.tab{flex:1;padding:9px 4px;font-weight:800;font-size:12px;border:0;border-radius:8px;background:transparent;color:var(--dim)}.tab.active{color:#061b18;background:var(--teal)}.suggestions{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;min-height:40px}.word{border:1px solid #36615e;background:#17312f;color:#d4fff9;padding:7px 10px;border-radius:9px;font-size:13px;cursor:pointer}.word:hover{background:#244a46}.result-note{font-size:12px;color:var(--dim);margin-top:10px}.caps{font-size:11px;color:var(--dim);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:13px 0 8px}.assist-item{display:none}.assist-item.active{display:block}.ai-note{border-left:3px solid var(--pink);padding:10px 11px;background:#291e34;color:#decfeb;font-size:12px;margin-top:12px;border-radius:4px 8px 8px 4px}.voice{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.mic{width:50px;height:50px;border-radius:50%;border:1px solid #438980;color:#072622;background:var(--teal);font-size:24px;display:grid;place-items:center}.mic.listening{background:#ff7997;color:#1f0811;animation:pulse 1.4s infinite}@keyframes pulse{50%{box-shadow:0 0 0 10px #ff799729}}.voice-txt{flex:1;min-width:120px}.interim{margin-top:12px;min-height:25px;color:var(--gold);font-style:italic;font-size:12px}.footer{text-align:center;color:#75839b;font-size:11px;margin:28px}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:50;max-width:calc(100vw - 30px);background:#ecfff9;color:#0c2421;padding:11px 18px;border-radius:12px;box-shadow:0 10px 45px #0009;opacity:0;pointer-events:none;transition:.2s;font-weight:700;text-align:center}.toast.show{opacity:1}.compact-row{display:flex;align-items:center;justify-content:space-between;gap:10px}.subhead{margin:4px 0 14px;color:var(--dim);font-size:12px}.mobile-project{display:none}.label{display:block;color:var(--dim);font-size:12px;margin-bottom:6px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.no-audio{font-size:12px;color:var(--dim)}.audio-name{font-size:13px}.save-light{color:#a2fae5}.footer a{color:var(--teal)}.audio-controls{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin-top:17px;padding-top:15px;border-top:1px solid var(--border)}.audio-pitch{width:100%;accent-color:var(--pink);cursor:pointer}.pitch-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.pitch-number{font-weight:850;color:var(--pink);font-variant-numeric:tabular-nums}.pitch-buttons{display:flex;gap:7px;align-items:center}.metro-controls{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:12px}.metro-volume{width:100%;accent-color:var(--teal);cursor:pointer}.beat-strip{display:flex;align-items:center;gap:8px;justify-content:center;margin:14px 0 12px}.beat-led{width:18px;height:18px;border:1px solid #4e5c72;background:#243045;border-radius:50%;transition:background .04s,box-shadow .04s}.beat-led.first{border-color:var(--pink)}.beat-led.active{background:var(--teal);box-shadow:0 0 17px #36ebd691;border-color:var(--teal)}.beat-led.first.active{background:var(--pink);box-shadow:0 0 17px #ec78dfaa;border-color:var(--pink)}.metro-status{text-align:center;font-size:12px;color:var(--dim);min-height:18px}.microhelp{color:var(--dim);font-size:11px;line-height:1.5}.metro-bpm{font-size:28px;font-weight:900;font-variant-numeric:tabular-nums}.metro-bpm small{font-size:11px;font-weight:700;color:var(--dim)}
+@media(max-width:440px){.audio-controls{grid-template-columns:1fr}.metro-controls{grid-template-columns:minmax(0,1fr) 120px}.beat-strip{justify-content:flex-start}}
+@media(max-width:1120px){.layout{grid-template-columns:220px minmax(0,1fr)}.assist-col{grid-column:2;position:static;display:grid;grid-template-columns:1fr 1fr}.assist-col .card:first-child{grid-column:1 / -1}.left{top:84px}}
+@media(max-width:720px){.layout{display:flex;flex-direction:column;padding:12px 12px 60px;gap:12px}.top-inner{padding:10px 12px}.left{position:static;width:100%;padding:12px}.left .project-list{display:none}.left .project-header{margin:0}.left .project-header h2,.left .hint,.left .divider,.left .library-note{display:none}.mobile-project{display:block;width:100%;margin-top:9px}.left .btn.full{width:auto}.editor-col,.assist-col{width:100%}.assist-col{display:flex;position:static}.pad{padding:15px}.brand-name{font-size:16px}.brand-by{font-size:10px}.status{font-size:10px;padding:5px 7px}.writing-area{min-height:400px}.btn{font-size:12px;padding:9px 10px}.audio{padding:15px}.title-field{font-size:18px}.bar-row{grid-template-columns:75px 1fr}}
+
+/* V3: reference sources, precision loop points, and rehearsal count-in */
+.source-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;margin-bottom:12px}
+.source-tab{background:#1c2738;border:1px solid #3a4560;color:#c9d7e9;border-radius:11px;padding:9px 13px;font-weight:800;font-size:12px}
+.source-tab.active{border-color:var(--teal);color:#0c2824;background:var(--teal)}
+.source-panel{display:none}.source-panel.active{display:block}.source-help{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.6}
+.source-entry{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.source-entry .field{flex:1;min-width:175px}
+.source-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:9px}
+.sc-player{margin-top:12px;min-height:80px}.sc-player iframe{display:block;width:100%;height:126px;border:0;border-radius:10px;background:#0d111c}
+.loop-tools{border-top:1px solid var(--border);margin-top:17px;padding-top:15px}
+.loop-markers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:13px 0}
+.loop-marker{border:1px solid #303b51;background:#0e1421;border-radius:11px;padding:11px;min-width:0}
+.loop-marker h3{font-size:12px;font-weight:800;color:var(--txt);margin-bottom:10px}
+.loop-marker .field{font-variant-numeric:tabular-nums;padding:7px 9px;font-size:13px;max-width:130px}
+.loop-marker input[type=range]{width:100%;accent-color:var(--teal);margin-top:12px}
+.loop-marker.end input[type=range]{accent-color:var(--pink)}
+.loop-marker.end{border-color:#473954}.loop-marker h3 em{color:var(--dim);font-weight:500;font-style:normal}
+.loop-info{color:var(--gold);font-size:11px;line-height:1.6}
+.countin{border-top:1px solid var(--border);padding-top:14px;margin-top:16px}
+.countin-controls{display:flex;align-items:end;gap:9px;flex-wrap:wrap}.countin-controls .field{width:120px}
+.countin-display{font-size:17px;font-weight:850;font-variant-numeric:tabular-nums;min-height:28px;color:var(--pink);margin-top:12px}
+@media(max-width:480px){.loop-markers{gap:7px}.loop-marker{padding:9px}.loop-marker .btn{font-size:11px}.source-entry .field{min-width:140px}.source-tab{flex:1}}
+
+/* v4: headphone rehearsal recording + non-destructive vocal takes and mixes */
+.record-card{border-color:#3a4260;background:linear-gradient(150deg,#191a34,#111725)}
+.record-card .head{margin-bottom:10px}.rec-note{font-size:12px;color:var(--dim);line-height:1.55}
+.rec-control{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0 12px}
+.rec-light{background:#341827;color:#ffa2b0;border:1px solid #8c3654;padding:5px 9px;border-radius:40px;font-size:11px;font-weight:800;letter-spacing:.6px}
+.rec-light.active{background:#61233c;color:#fff;box-shadow:0 0 17px #ff577b55}
+.take-list{display:grid;gap:7px;margin:11px 0 15px}.take{display:flex;align-items:center;gap:8px;justify-content:space-between;padding:9px 10px;background:#0c1222;border:1px solid #303951;border-radius:10px}
+.take.active{border-color:var(--teal);background:#142a30}.take button{font-size:12px;padding:5px 9px}.take-title{font-size:12px;font-weight:800;overflow-wrap:anywhere}.take-sub{font-size:11px;color:var(--dim)}
+.take-empty{color:var(--dim);font-size:12px;padding:14px 0}.mix-controls{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+.mix-controls input[type=range],.slip-control input[type=range]{width:100%;accent-color:var(--teal)}
+.slip-control{margin-top:7px}.slip-control .small-print{font-size:11px;color:var(--dim)}
+.mix-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.mix-actions select{max-width:180px}
+.take-player{width:100%;height:39px;display:block;margin-top:12px}
+.rec-status{color:var(--gold);font-size:12px;min-height:18px;line-height:1.5;margin-top:8px}
+@media(max-width:480px){.mix-controls{gap:8px}.rec-control{align-items:stretch}.rec-control .btn{flex:1}}
+.rhyme-section-title{font-size:11px;letter-spacing:1px;color:var(--teal);font-weight:850;margin:15px 0 5px}.rhyme-buttons{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 3px}.rhyme-near{border-color:#77608a;background:#32243e;color:#f4dcff}.rhyme-flow{border-color:#66563a;background:#332819;color:#ffe6b0}
+.rhyme-ranked{width:100%;display:flex;flex-direction:column;gap:5px}.rhyme-ranked-item{width:100%;text-align:left;background:#101c2a;border:1px solid #314355;border-radius:9px;padding:9px 8px;color:#e4f5f2;display:flex;gap:7px;align-items:center;min-width:0}.rhyme-ranked-item:focus-visible{outline:2px solid var(--teal)}.rhyme-rank{font-size:11px;color:#78b6b1;min-width:21px}.rhyme-text{font-weight:700;font-size:13px;flex:1;min-width:0;overflow-wrap:anywhere}.rhyme-quality{font-size:10px;padding:3px 5px;border-radius:5px;background:#143b33;color:#9ef9db}.rhyme-quality.near{background:#3c2b4c;color:#e7d2f7}.rhyme-quality.flow{background:#423120;color:#ffd5a5}.rhyme-syll{color:#94a9bd;font-size:10px;white-space:nowrap}</style>
+<meta name="application-name" content="MC Flowbook" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="MC Flowbook" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png" />
+<style>
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  #iphone-install-info { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+}
+#iphone-install-info {position:fixed;bottom:8px;left:10px;right:10px;z-index:200;background:#142b31;border:1px solid #36ebd6;border-radius:13px;padding:11px 36px 11px 14px;box-shadow:0 16px 35px #000b;font:13px/1.45 system-ui;color:#ecf5ff}
+#iphone-install-info[hidden]{display:none!important}
+#iphone-install-close{position:absolute;right:7px;top:7px;background:#293f47;border:0;color:white;font:700 15px system-ui;border-radius:7px;width:26px;height:26px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-inner"><div class="brand"><div class="logo" aria-hidden="true">MC</div><div><div class="brand-name">MC FLOWBOOK</div><div class="brand-by">by Orbital Trance · Early prototype</div></div></div><span class="status" id="storage-status">● Local projects</span></div></header>
+<main class="layout">
+ <aside class="card pad left">
+  <div class="project-header"><div class="head"><h2>My projects</h2><button class="btn primary small" id="new-project">+ New</button></div></div>
+  <select class="field mobile-project" id="mobile-project" aria-label="Choose project"></select>
+  <div class="project-list" id="project-list"></div>
+  <div class="btns"><button class="btn ghost small" id="duplicate-project">Duplicate</button><button class="btn warn small" id="delete-project">Delete</button></div>
+  <div class="divider"></div><p class="eyebrow library-note">Your writing vault</p><p class="hint" style="margin-top:9px">Each project keeps its lyrics, BPM and linked reference instrumental together. Data is stored locally on this device and browser, not in an online account.</p>
+ </aside>
+ <section class="editor-col" aria-label="Project editor">
+  <div class="card pad">
+   <div class="title-row"><input id="project-title" class="field title-field" aria-label="Project title" placeholder="Project title" maxlength="100" /></div>
+   <div class="bar-row"><div><label class="label" for="bpm">BPM</label><input class="field" id="bpm" type="number" min="60" max="250" value="165" /></div><div><label class="label" for="project-subtitle">Notes / theme</label><input class="field" id="project-subtitle" placeholder="e.g. Dark makina, crowd hype, 16 bars…" maxlength="180" /></div></div>
+  </div>
+  <div class="card audio">
+   <div class="compact-row"><div><p class="eyebrow">REFERENCE TRACK</p><div class="trackinfo" style="margin-top:7px"><strong class="audio-name" id="audio-label">No reference linked</strong><div class="tiny muted" id="audio-meta">Upload audio or paste a SoundCloud track link</div></div></div><span class="tiny muted">Saved per project</span></div>
+   <div class="source-tabs" role="group" aria-label="Reference source">
+    <button class="source-tab active" type="button" id="use-local">♫ Uploaded audio</button><button class="source-tab" type="button" id="use-soundcloud">☁ SoundCloud link</button>
+   </div>
+   <section id="local-panel" class="source-panel active" aria-label="Uploaded reference audio">
+    <div class="source-actions"><label class="btn small primary" for="audio-upload">+ Upload MP3 / WAV</label><input class="sr" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.flac" id="audio-upload"><button class="btn small ghost" id="remove-audio">Remove upload</button></div>
+    <audio id="audio-player" class="audio-player" controls preload="metadata"></audio>
+    <p class="source-help">Your uploaded file is kept in this browser's local project storage. Pitch and speed controls apply to uploaded files only.</p>
+   </section>
+   <section id="soundcloud-panel" class="source-panel" aria-label="SoundCloud reference audio">
+    <label class="label" for="soundcloud-link">Paste a public SoundCloud track URL</label>
+    <div class="source-entry"><input id="soundcloud-link" class="field" type="url" inputmode="url" placeholder="https://soundcloud.com/artist/track" autocomplete="off"><button id="soundcloud-attach" class="btn small primary">Link track</button></div>
+    <div class="source-actions"><button id="soundcloud-remove" class="btn small ghost">Remove link</button><a id="soundcloud-open" class="btn small ghost" href="https://soundcloud.com" target="_blank" rel="noopener noreferrer" style="display:none;text-decoration:none">Open on SoundCloud ↗</a></div>
+    <div id="soundcloud-player" class="sc-player" aria-label="SoundCloud player"><p class="source-help">Paste a track's share URL and press Link track. An internet connection is required.</p></div>
+    <p class="source-help" id="soundcloud-message">Playback uses SoundCloud's official embedded player. No downloaded audio is stored, and some tracks may restrict embedding. Pitch and speed are not available for SoundCloud links.</p>
+   </section>
+   <div class="loop-tools" aria-label="A B looping">
+    <div class="compact-row"><div><h2 style="font-size:15px">A/B rehearsal loop</h2><p class="microhelp">Mark a phrase while it plays, or type exact times</p></div><span class="eyebrow" id="loop-length">—</span></div>
+    <div class="loop-markers">
+     <div class="loop-marker"><h3>A · Loop start <em>(mm:ss)</em></h3><div class="btns"><input id="loop-start-time" class="field" aria-label="Loop start time" placeholder="0:00.0" inputmode="decimal"><button class="btn small ghost" id="loop-a">Set A</button></div><input id="loop-start-slider" type="range" min="0" max="180" step="0.1" value="0" aria-label="Move loop start point"></div>
+     <div class="loop-marker end"><h3>B · Loop end <em>(mm:ss)</em></h3><div class="btns"><input id="loop-end-time" class="field" aria-label="Loop end time" placeholder="0:30.0" inputmode="decimal"><button class="btn small ghost" id="loop-b">Set B</button></div><input id="loop-end-slider" type="range" min="0" max="180" step="0.1" value="30" aria-label="Move loop end point"></div>
+    </div>
+    <div class="btns"><button class="btn small" id="toggle-loop">Loop off</button><button class="btn small ghost" id="jump-loop-start">↩ Jump to A</button><button class="btn small ghost" id="clear-loop">Clear markers</button></div>
+    <div class="loop-info" id="loop-info" style="margin-top:11px">Choose A and B to repeat a section.</div>
+   </div>
+   <div id="local-effects"><div class="compact-row" style="margin-top:16px"><span class="microhelp">Uploaded audio only</span><label class="tiny muted">Speed <select id="playback-speed" class="field" style="width:auto;padding:4px 7px"><option value="0.75">0.75×</option><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option></select></label></div>
+   <div class="audio-controls"><div><div class="pitch-head"><label class="label" for="pitch-shift" style="margin:0">Instrumental pitch adjustment</label><span class="pitch-number" id="pitch-value">Original key (0)</span></div><input type="range" class="audio-pitch" id="pitch-shift" min="-6" max="6" step="1" value="0" aria-label="Instrumental pitch shift in semitones"><div class="microhelp">Shift ±6 semitones without changing tempo. Live preview; device quality varies.</div></div><div class="pitch-buttons"><button class="btn small ghost" id="pitch-reset">Reset pitch</button></div></div></div>
+  </div>
+  <div class="card pad" aria-label="Metronome controls">
+   <div class="head"><h2>Metronome</h2><span class="eyebrow">Stay on beat</span></div>
+   <div class="metro-controls"><div><p class="metro-bpm"><span id="metro-bpm-label">165</span> <small>BPM</small></p><p class="microhelp">Linked to the BPM above. Tap a tempo or change the project BPM.</p></div><div><label class="label" for="metro-meter">Beats per bar</label><select id="metro-meter" class="field"><option value="4">4 / 4</option><option value="3">3 / 4</option><option value="2">2 / 4</option></select></div></div>
+   <div class="beat-strip" id="metro-beats" aria-label="Metronome beat lights"></div><p class="metro-status" id="metro-status" aria-live="polite">Metronome off</p>
+   <div class="btns" style="margin-top:12px"><button class="btn primary" id="metro-toggle">▶ Start metronome</button><button class="btn ghost" id="tap-tempo">Tap tempo</button></div>
+   <div style="margin-top:14px"><div class="compact-row"><label class="label" for="metro-volume">Click volume</label><span class="tiny muted" id="metro-volume-label">45%</span></div><input type="range" id="metro-volume" class="metro-volume" min="0" max="100" value="45" step="5" aria-label="Metronome click volume"></div>
+   <p class="microhelp">First beat is accented. Runs independently of the instrumental; start on the beat for alignment.</p>
+   <div class="countin"><div class="head"><h2>Count-in + play</h2><span class="eyebrow">Ready for your first bar</span></div><div class="countin-controls"><div><label class="label" for="count-in-beats">Count-in length</label><select class="field" id="count-in-beats"><option value="4">4 beats</option><option value="8">8 beats</option></select></div><button class="btn primary" id="count-in-start">▶ Count in + play</button><button class="btn ghost small" id="count-in-cancel" disabled>Cancel</button></div><p id="count-in-display" class="countin-display" aria-live="polite">Ready</p><p class="microhelp">Click beats are timed to your project BPM. SoundCloud playback may have a slight streaming delay.</p></div>
+  </div>
+  <div class="card pad record-card" aria-label="Vocal rehearsal recorder">
+   <div class="head"><h2>Headphone rehearsal recorder</h2><span class="rec-light" id="rec-indicator">● READY</span></div>
+   <p class="rec-note">Put on headphones, then record a <strong>dry vocal take</strong> using your phone's microphone. The instrumental uses your phone's headphone output; with headphones connected, the microphone records a separate vocal track. Recording over an uploaded MP3/WAV gives the most reliable results.</p>
+   <div class="rec-control"><button id="record-start" class="btn primary">● Count-in + record</button><button id="record-stop" class="btn ghost" disabled>■ Stop take</button><span id="record-timer" class="eyebrow">00:00</span></div>
+   <p class="rec-status" id="record-status" role="status" aria-live="polite">Ready to record · mic permission required · headphones recommended</p>
+   <div class="divider"></div><div class="compact-row"><h3 style="font-size:14px">Saved vocal takes</h3><span class="tiny muted">Select a take to mix</span></div>
+   <div id="take-list" class="take-list"><div class="take-empty">No recordings yet.</div></div>
+   <audio id="vocal-player" class="take-player" controls preload="metadata" aria-label="Solo vocal recording"></audio>
+   <div class="mix-controls">
+    <div><div class="compact-row"><label class="label" for="music-level">Music</label><span class="tiny muted" id="music-level-text">75%</span></div><input id="music-level" type="range" min="0" max="100" step="1" value="75" aria-label="Instrumental volume"></div>
+    <div><div class="compact-row"><label class="label" for="voice-level">Vocal</label><span class="tiny muted" id="voice-level-text">100%</span></div><input id="voice-level" type="range" min="0" max="100" step="1" value="100" aria-label="Vocal volume"></div>
+   </div>
+   <div class="slip-control"><div class="compact-row"><label class="label" for="vocal-sync">Vocal timing adjustment</label><span class="tiny muted" id="vocal-sync-text">0 ms</span></div><input id="vocal-sync" type="range" min="-1000" max="1000" step="10" value="0" aria-label="Move vocal earlier or later"><p class="small-print">Slide left to make the vocal earlier, right to make it later. Helps correct microphone/Bluetooth latency.</p></div>
+   <div class="mix-actions"><button id="mix-preview" class="btn primary">▶ Preview layered mix</button><button id="mix-stop" class="btn ghost">■ Stop playback</button><button id="take-download" class="btn ghost">↓ Save vocal only</button></div>
+   <div class="divider"></div>
+   <div class="compact-row"><h3 style="font-size:14px">Export rehearsal</h3><label class="tiny muted">Section <select id="mix-region" class="field" style="width:auto;padding:5px 7px"><option value="take">Recorded section</option><option value="full">Full reference track</option><option value="vocal">Vocal only</option></select></label></div>
+   <div class="mix-actions"><button id="mix-mp3" class="btn primary">↓ Export MP3 mix</button><button id="mix-wav" class="btn ghost">↓ Export WAV mix</button></div>
+   <p class="rec-note" style="margin-top:11px">MP3 encoding needs an internet connection the first time to load its encoder. Exports use the uploaded audio at original pitch and speed. SoundCloud embeds are for rehearsal listening only: export a mixed backing track by uploading a file you own or have permission to use.</p>
+  </div>
+  <div class="card pad">
+   <div class="lyrics-head"><div><p class="eyebrow">WRITE · REHEARSE · SAVE</p><h1 class="lyrics-title">Lyric pad</h1><p class="count" id="lyric-count">0 words · 0 written lines</p></div><button class="btn small ghost" id="export-text">↓ Export .txt</button></div>
+   <textarea id="lyrics" class="writing-area" aria-label="Write lyrics" spellcheck="true" placeholder="The instrumental's ready. Write your first bar…\n\nTap the microphone to dictate a verse, or use the rhyming tools to break writer's block."></textarea>
+   <div class="editor-bottom"><div class="btns"><button class="btn small ghost" id="insert-eight">+ 8 bars</button><button class="btn small ghost" id="insert-sixteen">+ 16 bars</button><button class="btn small ghost" id="insert-hook">+ Hook</button></div><span class="save-state" id="save-state" aria-live="polite">Changes save automatically</span></div>
+  </div>
+ </section>
+ <aside class="assist-col" aria-label="Writing tools">
+  <div class="card pad">
+   <div class="head"><h2>Wordplay tools</h2><span class="eyebrow">Rhymes + flow</span></div>
+   <div class="tabrow" role="tablist" aria-label="Wordplay tools"><button class="tab active" data-tab="rhymes" role="tab" aria-selected="true">Rhymes</button><button class="tab" data-tab="alliteration" role="tab" aria-selected="false">Alliteration</button></div>
+   <div id="rhymes" class="assist-item active"><label class="label" for="rhyme-query">Enter a word or phrase</label><input class="field" id="rhyme-query" maxlength="65" autocomplete="off" placeholder="e.g. no pun / shogun / night" /><div class="btns" style="margin-top:8px"><button class="btn small ghost" id="rhyme-use-line" type="button">↳ Use last lyric phrase</button></div><div class="suggestions" id="rhymes-output" aria-live="polite"><p class="hint">Your 12 closest matches will appear here, ranked by pronunciation, syllables and stress.</p></div><p class="result-note" id="rhyme-status">12 closest matches · exact rhymes first · British accents vary</p><p class="hint" style="margin-top:5px">Perfect rhymes first. Near rhymes are clearly labelled when there are not enough exact matches. Online results use Datamuse.</p></div>
+   <div id="alliteration" class="assist-item"><label class="label" for="alliteration-query">Starting sound or letter</label><input class="field" id="alliteration-query" maxlength="30" placeholder="e.g. B / bass"/><div class="suggestions" id="alliteration-output"><p class="hint">Enter a letter or word to find punchy, same-letter phrases.</p></div><p class="result-note">Tap words to insert; use them as inspiration, not complete lyrics.</p></div>
+  </div>
+  <div class="card pad"><div class="head"><h2>AI rhyme assist</h2><span class="eyebrow">20 closer matches</span></div><p class="subhead">One tap builds your rhyme request from the word or phrase above and opens ChatGPT.</p><button class="btn primary full" id="ask-ai-rhymes" type="button">✦ Find 20 rhymes in ChatGPT ↗</button><p class="result-note">ChatGPT opens with a prepared request for 20 perfect or near-perfect rhymes, ranked by sound and syllable count. You may need to tap Send in ChatGPT.</p></div>
+  <div class="card pad"><div class="head"><h2>Voice → lyrics</h2><span class="eyebrow">Hands-free writing</span></div><div class="voice"><button class="mic" id="mic-button" aria-label="Start speech-to-text">🎙</button><div class="voice-txt"><strong id="mic-label">Tap to dictate</strong><p class="tiny muted" id="mic-help">Your spoken words are added to the lyric pad.</p></div></div><p class="interim" id="voice-interim" aria-live="polite"></p><p class="hint">Uses your browser's speech recognition service where supported. It may require internet access and microphone permission.</p></div>
+ </aside>
+</main>
+<footer class="footer">MC Flowbook · Prototype by Orbital Trance · Local-only storage · Keep backup exports of your writing</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+const $=(id)=>document.getElementById(id);
+const DB_NAME='mc-flowbook-prototype';const DB_VERSION=2;
+let db=null,projects=[],activeId=null,currentAudioURL=null,saveTimer=null,recog=null,recognising=false,audioLoop={a:null,b:null,on:false};
+let sharedAudioContext=null,pitchMediaSource=null,pitchDry=null,pitchWet=null,pitchDelays=[],pitchGains=[],pitchModulator=null;
+let metroRunning=false,metroClock=null,metroNextTime=0,metroBeat=0,metroScheduledUI=[],tapTimes=[];
+let soundcloudWidget=null,soundcloudReady=false,scPosition=0,scDuration=0,scGeneration=0,scScriptPromise=null;
+let countInToken=0,countInTimers=[],countingIn=false,localLoopFrame=null;
+const isSoundcloud=()=>getProject()?.referenceSource==='soundcloud';
+const sourceIsPresent=()=>isSoundcloud()?!!getProject()?.soundcloudUrl:!!getProject()?.audioName;
+
+const el={list:$('project-list'),mobile:$('mobile-project'),title:$('project-title'),subtitle:$('project-subtitle'),bpm:$('bpm'),lyrics:$('lyrics'),audio:$('audio-player'),audioLabel:$('audio-label'),audioMeta:$('audio-meta'),save:$('save-state')};
+const uid=()=>('p-'+Date.now()+'-'+Math.random().toString(36).slice(2,9));
+const dateFmt=(ts)=>new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2900)}
+function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window))return reject(new Error('IndexedDB not available'));const r=indexedDB.open(DB_NAME,DB_VERSION);r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains('projects'))d.createObjectStore('projects',{keyPath:'id'});if(!d.objectStoreNames.contains('audio'))d.createObjectStore('audio',{keyPath:'id'});if(!d.objectStoreNames.contains('takes'))d.createObjectStore('takes',{keyPath:'key'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function op(store,type,method,arg){return new Promise((resolve,reject)=>{const tx=db.transaction(store,type);const r=tx.objectStore(store)[method](arg);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function persistLocal(){try{localStorage.setItem('mcflowbook-fallback',JSON.stringify(projects))}catch(e){console.warn('Fallback storage unavailable',e)}}
+function getProject(){return projects.find(p=>p.id===activeId)}
+function baseProject(name){return{id:uid(),name:name||'Untitled MC session',subtitle:'',bpm:165,lyrics:'',audioName:'',updated:Date.now(),loopA:null,loopB:null,loopOn:false,pitch:0,metroMeter:4,metroVolume:45,referenceSource:'none',soundcloudUrl:'',countInBeats:4,musicLevel:75,voiceLevel:100,vocalSync:0,selectedTake:null}}
+async function saveProject(project){if(db){await op('projects','readwrite','put',project)}else{persistLocal()}}
+async function removeProjectData(id){if(db){await op('projects','readwrite','delete',id);await op('audio','readwrite','delete',id);await deleteProjectTakes(id)}else{persistLocal()}}
+function syncFromForm(){const p=getProject();if(!p)return;p.name=el.title.value.trim()||'Untitled MC session';p.subtitle=el.subtitle.value;p.bpm=Number(el.bpm.value)||165;p.lyrics=el.lyrics.value;p.loopA=audioLoop.a;p.loopB=audioLoop.b;p.loopOn=audioLoop.on;p.pitch=Number($('pitch-shift').value)||0;p.metroMeter=Number($('metro-meter').value)||4;p.metroVolume=Number($('metro-volume').value);p.countInBeats=Number($('count-in-beats').value)||4;p.musicLevel=Number($('music-level').value);p.voiceLevel=Number($('voice-level').value);p.vocalSync=Number($('vocal-sync').value);p.updated=Date.now()}
+function scheduleSave(){syncFromForm();el.save.textContent='Saving…';clearTimeout(saveTimer);saveTimer=setTimeout(()=>saveNow(),450);updateCounts();}
+async function saveNow(){clearTimeout(saveTimer);const p=getProject();if(!p)return;syncFromForm();try{await saveProject({...p});el.save.textContent='✓ Saved on this device';el.save.classList.add('save-light');renderProjects(false)}catch(e){el.save.textContent='Could not save · Export text';el.save.classList.remove('save-light');toast('Saving failed. Export your lyrics for safekeeping.')}}
+function updateCounts(){const txt=el.lyrics.value;const words=(txt.match(/\S+/g)||[]).length;const lines=txt.split(/\r?\n/).filter(x=>x.trim()).length;$('lyric-count').textContent=`${words} words · ${lines} written lines`}
+function renderProjects(full=true){const ordered=[...projects].sort((a,b)=>b.updated-a.updated);if(full){el.list.replaceChildren();el.mobile.replaceChildren();for(const p of ordered){const btn=document.createElement('button');btn.className='project'+(p.id===activeId?' selected':'');const name=document.createElement('strong');name.textContent=p.name;const detail=document.createElement('span');detail.textContent=`${p.bpm} BPM · ${dateFmt(p.updated)}${p.audioName||p.soundcloudUrl?' · ♫':''}`;btn.append(name,detail);btn.addEventListener('click',()=>selectProject(p.id));el.list.append(btn);const o=document.createElement('option');o.value=p.id;o.textContent=p.name;el.mobile.append(o)}el.mobile.value=activeId||''}else{const selected=el.list.querySelector('.selected');if(selected){const s=selected.querySelector('strong');if(s)s.textContent=getProject()?.name||''}for(const opt of el.mobile.options)if(opt.value===activeId)opt.textContent=getProject()?.name||''}}
+function formatTime(sec){return Number.isFinite(sec)?`${Math.floor(sec/60)}:${String(Math.floor(sec%60)).padStart(2,'0')}`:'–'}
+function formatLoopTime(sec){if(!Number.isFinite(sec)||sec<0)return '';const m=Math.floor(sec/60),s=(sec%60).toFixed(1).padStart(4,'0');return `${m}:${s}`}
+function parseLoopTime(input){const v=String(input||'').trim();if(!v)return null;if(/^\d+(?::\d+(?:\.\d+)?)?$/.test(v)){const parts=v.split(':');const n=parts.length===2?Number(parts[0])*60+Number(parts[1]):Number(parts[0]);return Number.isFinite(n)&&n>=0?n:null}return NaN}
+function sourceDuration(){return isSoundcloud()?scDuration:Number(el.audio.duration)||0}
+function sourcePosition(){return isSoundcloud()?scPosition:Number(el.audio.currentTime)||0}
+function updateLoopUI(){const points=[audioLoop.a,audioLoop.b],duration=sourceDuration();const max=Math.max(30,duration||180,...points.filter(Number.isFinite));
+ [['loop-start-time','loop-start-slider',audioLoop.a],['loop-end-time','loop-end-slider',audioLoop.b]].forEach(([id,range,value])=>{const input=$(id),slider=$(range);if(document.activeElement!==input)input.value=value===null?'':formatLoopTime(value);slider.max=String(max);if(document.activeElement!==slider)slider.value=String(value??0)});
+ $('loop-length').textContent=audioLoop.a!==null&&audioLoop.b!==null?formatLoopTime(audioLoop.b-audioLoop.a)+' loop':'—';
+ $('loop-info').textContent=`A ${audioLoop.a===null?'not set':formatLoopTime(audioLoop.a)} · B ${audioLoop.b===null?'not set':formatLoopTime(audioLoop.b)}${audioLoop.on?' · Repeating section':''}`;
+ $('toggle-loop').textContent=audioLoop.on?'↻ Loop on ✓':'↻ Loop off';$('toggle-loop').classList.toggle('primary',audioLoop.on)
+}
+function chooseSource(source){const p=getProject();if(!p)return;if(recorderState!=='idle'){toast('Stop recording before changing the reference');return}stopMixPreview();cancelCountIn();const old=p.referenceSource;p.referenceSource=source;if(old==='soundcloud'&&source!=='soundcloud'&&soundcloudWidget){try{soundcloudWidget.pause()}catch{}}if(source==='soundcloud')el.audio.pause();
+ $('use-local').classList.toggle('active',source!=='soundcloud');$('use-soundcloud').classList.toggle('active',source==='soundcloud');$('local-panel').classList.toggle('active',source!=='soundcloud');$('soundcloud-panel').classList.toggle('active',source==='soundcloud');$('local-effects').style.display=source==='soundcloud'?'none':'';
+ if(source==='soundcloud'){el.audioLabel.textContent=p.soundcloudUrl?'SoundCloud reference linked':'No SoundCloud link yet';el.audioMeta.textContent=p.soundcloudUrl?'Streams from SoundCloud · saved as a link':'Paste a SoundCloud track URL';if(p.soundcloudUrl&&!soundcloudWidget)loadSoundCloud(p.soundcloudUrl)}
+ else{el.audioLabel.textContent=p.audioName||'No uploaded reference yet';el.audioMeta.textContent=p.audioName?'Saved with this project on your device':'Upload an MP3 or WAV to rehearse';}
+ updateLoopUI();scheduleSave()
+}
+async function loadAudio(p){el.audio.pause();cancelCountIn();if(currentAudioURL){URL.revokeObjectURL(currentAudioURL);currentAudioURL=null}el.audio.removeAttribute('src');el.audio.load();
+ if(db&&p.audioName){try{const r=await op('audio','readonly','get',p.id);if(activeId!==p.id)return;if(r?.blob){currentAudioURL=URL.createObjectURL(r.blob);el.audio.src=currentAudioURL;el.audio.load()}else if(p.referenceSource!=='soundcloud'){el.audioMeta.textContent='Audio missing — upload it again'}}catch(e){if(p.referenceSource!=='soundcloud')el.audioMeta.textContent='Could not load saved audio'}}
+}
+async function selectProject(id){if(recorderState!=='idle'){toast('Finish recording before switching projects');return}stopMixPreview();if(!projects.some(p=>p.id===id))return;if(activeId&&activeId!==id)await saveNow();if(recognising)stopDictation();cancelCountIn();if(soundcloudWidget){try{soundcloudWidget.pause()}catch{}}
+ soundcloudWidget=null;soundcloudReady=false;scPosition=0;scDuration=0;scGeneration++;
+ activeId=id;const p=getProject();p.referenceSource=p.referenceSource||(p.audioName?'local':p.soundcloudUrl?'soundcloud':'none');
+ el.title.value=p.name;el.subtitle.value=p.subtitle;el.bpm.value=p.bpm;el.lyrics.value=p.lyrics;audioLoop={a:p.loopA??null,b:p.loopB??null,on:!!p.loopOn};$('pitch-shift').value=Number(p.pitch)||0;updatePitchLabel();$('metro-meter').value=String(p.metroMeter||4);$('metro-volume').value=String(p.metroVolume??45);$('count-in-beats').value=String(p.countInBeats||4);$('music-level').value=String(p.musicLevel??75);$('voice-level').value=String(p.voiceLevel??100);$('vocal-sync').value=String(p.vocalSync??0);updateMixControls();$('soundcloud-link').value=p.soundcloudUrl||'';updateMetronomeUI();if(pitchMediaSource)applyPitch(Number(p.pitch)||0).catch(console.warn);if(metroRunning)restartMetronome();updateCounts();el.save.textContent='✓ Saved on this device';renderProjects();
+ $('soundcloud-player').replaceChildren();$('soundcloud-open').style.display=p.soundcloudUrl?'':'none';if(p.soundcloudUrl)$('soundcloud-open').href=p.soundcloudUrl;
+ await loadAudio(p);if(activeId!==id)return;await loadTakes(p.id);if(activeId!==id)return;chooseSource(p.referenceSource==='soundcloud'?'soundcloud':'local');if(p.referenceSource==='soundcloud'&&p.soundcloudUrl)loadSoundCloud(p.soundcloudUrl);updateLoopUI()
+}
+async function newProject(){if(recorderState!=='idle'){toast('Stop the recording first');return}await saveNow();const p=baseProject('New MC session');projects.push(p);await saveProject(p);await selectProject(p.id);el.title.focus();el.title.select();toast('New project created')}
+async function deleteProject(){if(recorderState!=='idle'){toast('Stop the recording first');return}if(!confirm('Delete this project, its lyrics and linked instrumental from this browser?'))return;const id=activeId;if(currentAudioURL){URL.revokeObjectURL(currentAudioURL);currentAudioURL=null}projects=projects.filter(p=>p.id!==id);await removeProjectData(id);activeId=null;if(!projects.length){const p=baseProject('My first MC session');projects.push(p);await saveProject(p)}await selectProject(projects[0].id);toast('Project deleted')}
+async function duplicateProject(){await saveNow();const p=getProject();const clone={...p,id:uid(),name:p.name+' (copy)',updated:Date.now()};projects.push(clone);if(db&&p.audioName){const audio=await op('audio','readonly','get',p.id);if(audio?.blob)await op('audio','readwrite','put',{id:clone.id,blob:audio.blob})}await saveProject(clone);await selectProject(clone.id);toast('Project duplicated')}
+function insertAtCursor(str){const area=el.lyrics;const start=area.selectionStart??area.value.length,end=area.selectionEnd??area.value.length;const before=area.value.slice(0,start),after=area.value.slice(end);const spacer=before&&!/\s$/.test(before)&&!str.startsWith('\n')?' ':'';area.value=before+spacer+str+after;area.focus();const pos=(before+spacer+str).length;area.setSelectionRange(pos,pos);scheduleSave()}
+function insertBars(n){let txt='\n\n['+n+' BARS]\n';for(let i=1;i<=n;i++)txt+=String(i).padStart(2,'0')+'  '+(i<n?'\n':'');insertAtCursor(txt+'\n')}
+function makeExport(){const p=getProject();const clean=(p.name||'lyrics').replace(/[<>:"/\\|?*\x00-\x1f]/g,'').trim().slice(0,80)||'lyrics';const str=`${p.name}\n${p.bpm} BPM\nPitch: ${p.pitch>0?'+':''}${p.pitch||0} semitones (rehearsal)\n${p.subtitle||''}\n\n${p.lyrics}\n`;const url=URL.createObjectURL(new Blob([str],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=clean+'.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast('Lyrics exported as text')}
+const GROUPS=[
+'night light bright fight right sight tight height flight might ignite excite invite tonight midnight insight rewrite',
+'flow show slow glow know go throw blow grow snow below overflow',
+'day way say play stay grey delay replay betray okay today away',
+'face place space chase race trace embrace replace disgrace',
+'beat heat street repeat compete complete retreat elite sweet',
+'sound round ground pound surround rebound underground profound',
+'time rhyme climb prime sublime lifetime meantime',
+'fire higher desire inspire entire wire amplifier',
+'mind find kind blind behind rewind remind grind',
+'motion ocean devotion commotion promotion potion notion',
+'heart start apart chart art depart restart',
+'dream stream scream extreme team scheme theme',
+'game flame name same blame fame claim',
+'break take make shake wake fake ache mistake earthquake',
+'roll control soul goal whole stroll patrol console',
+'drop stop top pop shop swap hop nonstop',
+'bass class glass pass mass fast last blast past',
+'soundbound',
+'fly high sky try why lie goodbye reply deny',
+'strong long song wrong along belong prolong',
+'power hour tower flower shower devour',
+'lightning frightening tightening enlightening',
+'energy synergy memory remedy melody',
+'back track stack attack comeback feedback',
+'crowd loud proud cloud allowed',
+'deep keep sleep creep sweep leap',
+'start smart part heart chart depart',
+'hard yard guard card scarred barred',
+'fast last blast past cast contrast',
+'free see be me key degree guarantee',
+'rise eyes skies surprise disguise realise',
+'rave wave save brave crave behave',
+'zone phone known shown grown unknown',
+'scene machine green clean unseen',
+'line sign shine fine mine divine',
+'pain rain train gain remain explain',
+'cold told bold sold unfold controlled',
+'hype type swipe stripe pipe',
+'kick quick slick trick pick sick',
+'down town crown drown frown renown',
+'floor more soar roar explore before',
+'beat repeat street heat complete',
+'stage rage cage page engage',
+'phase craze blaze raise days',
+'true blue through new crew breakthrough',
+'left step kept slept wept',
+'touch much clutch rush hush crush',
+'push rush crush flush blush',
+'fight tonight ignite light daylight',
+'door more floor before encore',
+'heartbroken unspoken outspoken awoken',
+'pressure measure treasure pleasure',
+'station vibration creation sensation',
+'direction connection reflection perfection',
+'vision decision precision collision',
+'illusion confusion fusion conclusion',
+'reaction attraction distraction satisfaction',
+'freedom kingdom wisdom rhythm',
+'shiver river deliver forever',
+'danger stranger changer',
+'burning turning learning yearning',
+'racing chasing facing embracing',
+'fall call all wall small tall',
+'focus notice lotus',
+'dance chance glance trance advance',
+'voice choice noise rejoice',
+'move groove prove improve',
+'better letter sweater setter',
+'feeling healing dealing revealing',
+'real feel steel reveal',
+'pressure lesser fresher',
+'release peace cease increase',
+'breakdown shakedown takedown',
+'phase raise blaze craze',
+'head ahead instead misread',
+'dead red said spread',
+'rock clock block shock unlock',
+'mic spike strike like',
+'pace bass face place embrace',
+'hold cold gold bold told',
+'away delay today replay'
+].filter(g=>!g.includes('soundbound')).map(g=>g.split(' '));
+const WORDS=Array.from(new Set(GROUPS.flat()));const WORD_INDEX=new Map();GROUPS.forEach(group=>group.forEach(word=>{if(!WORD_INDEX.has(word))WORD_INDEX.set(word,new Set());group.forEach(w=>{if(w!==word)WORD_INDEX.get(word).add(w)})}));
+const ALLIT={a:'accelerate attack atomic aerial alive amplified atmosphere ambition',b:'bass beats bounce blazing booming brutal blackout break building battle',c:'crowd chaos crashing cosmic crystal charging champion cutting',d:'dark deep dangerous driving deadly distorted direct dance',e:'electric energy epic echo endless elevated explosive evolving',f:'fast fierce fire fearless frequency frantic flowing full',g:'grinding gritty glowing gravity ground gaining generation',h:'hard heavy hypnotic high hype heartbeat higher hammer',i:'ignite intense impact infinite instinct ignite incoming',j:'jump jolt jamming jagged journey jungle',k:'kick kinetic knockout king killer keen',l:'loud lightning laser limitless locked lifted live',m:'massive makina motion madness microphone maximum mind',n:'night nonstop nuclear noise nervous next neon',o:'orbit overdrive original overload open outlaw',p:'power pulse pounding pressure precision pure pace',q:'quick quake quiet quantum quality',r:'rapid rave relentless rush rhythm roaring razor',s:'speed sonic savage seismic sharp shock stadium storm',t:'trance thunder trigger twisted turbo takeoff tension',u:'ultimate underground unleashed unstoppable untamed upbeat',v:'vocal vivid violent velocity vibrant vibration voltage',w:'wild wicked wave warrior whirlwind wired warning',x:'xenon xray xenial',y:'young yearning yelling yellow',z:'zero zone zigzag zoom zenith'};
+function wordsRender(id,words,defaultText){const out=$(id);out.replaceChildren();if(!words.length){const p=document.createElement('p');p.className='hint';p.textContent=defaultText;out.append(p);return}words.forEach(w=>{const b=document.createElement('button');b.type='button';b.className='word';b.textContent=w;b.title='Insert into lyric pad';b.addEventListener('click',()=>insertAtCursor(w));out.append(b)})}
+
+// Sound-based rhyme finder: preserves spaces; shows phonetic rhyme strength honestly.
+const RHYME_PHRASE_BANK={
+'no pun':{
+tight:['no fun','so done','go run','low sun','know one','show one','slow run'],
+near:['shogun','shotgun','no one','go nuts','so young','whole bunch','got some','not done','go numb'],
+flow:['awesome','problem','blossom','rock on','lost one','on one']},
+'let go':{tight:['get low','set flow','head low','red glow','best show'],near:['let loose','get close','step slow','echo'],flow:['let it show','never know','ready to go']},
+'dont stop':{tight:['on top','nonstop','one drop','bomb drop'],near:['long shot','front row','hot spot'],flow:['won’t stop','run the block','watch it drop']},
+'no way':{tight:['go play','slow day','okay','show day'],near:['both ways','go straight','no breaks'],flow:['okay','don’t wait','go insane']},
+'right now':{tight:['bright crowd','light crowd','white cloud'],near:['ride out','find out','night owl'],flow:['high ground','lights down','fight loud']},
+'stand tall':{tight:['landfall','grand hall','handball'],near:['can’t fall','stand strong','last call'],flow:['hands up','dance floor','last round']},
+'come back':{tight:['drum track','one track','run back'],near:['thumbtack','jump back','some facts'],flow:['get back','turn back','run that']},
+'get down':{tight:['set down','let down','wet ground'],near:['head round','next round','best sound'],flow:['step out','bass loud','reset now']},
+'too late':{tight:['new fate','blue gate','true state'],near:['you wait','through pain','new wave'],flow:['who’s next','no brakes','move straight']},
+'stay strong':{tight:['play along','day long','way wrong'],near:['rainstorm','stand on','carry on'],flow:['break dawn','move on','rave on']},
+'not me':{tight:['got free','hot tea','lock key'],near:['rock beat','got speed','top league'],flow:['watch me','stop me','not weak']},
+'walk away':{tight:['talk all day','stalk the way','chalk and clay'],near:['all the way','caught a wave','lost the day'],flow:['gone astray','on my way','not today']},
+'stay alive':{tight:['day and night','take a dive','play it live'],near:['save my life','break the line','make it right'],flow:['feel alive','reach the sky','never die']}
+};
+const RHYME_TAIL_FAMILIES=[
+'pun fun run sun done one none gun stun begun undone someone everyone anyone shun ton won son',
+'luck duck truck stuck struck buck chuck muck pluck',
+'beat feet heat street sweet treat complete retreat compete',
+'back track stack pack crack attack lack black',
+'go show flow low know slow glow throw snow',
+'night light fight bright right sight tight flight',
+'down town crown brown frown sound round ground',
+'more floor door four core roar before',
+'one fun run sun done begun won',
+'strong long wrong song along belong',
+'fast last cast past blast',
+'way say day play stay away delay',
+'stop drop top pop hop shop',
+'fire higher desire wire liar',
+'mind find kind blind behind rewind',
+'time rhyme climb prime sublime',
+'line fine sign shine mine divine',
+'heart art start part chart',
+'late fate gate rate straight wait',
+'free be see me key three'
+].map(g=>g.split(' '));
+const RHYME_EXTRA_INDEX=new Map();
+RHYME_TAIL_FAMILIES.forEach(family=>family.forEach(w=>{
+ if(!RHYME_EXTRA_INDEX.has(w))RHYME_EXTRA_INDEX.set(w,new Set());
+ family.forEach(other=>{if(other!==w)RHYME_EXTRA_INDEX.get(w).add(other)})
+}));
+const RHYME_NEAR_FAMILIES={
+pun:['shogun','shotgun','no one','young','numb','bunch','some','come','drum','love'],
+love:['above','enough','tough','rough','stuff','club','blood','up'],
+fire:['liar','lighter','fighter','higher','desire','spire'],
+time:['mind','fine','line','night','ride','sign'],
+bass:['blast','fast','past','class','pace'],
+rave:['wave','brave','craze','rain','race'],
+one:['young','numb','drum','some','son']
+};
+const RHYME_CACHE=new Map();
+let rhymeSearchId=0,rhymeWait=null,rhymeController=null;
+function normalRhymeQuery(value){
+ return String(value||'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z -]/g,' ').replace(/ +/g,' ').trim().slice(0,65);
+}
+function rhymeUnique(items,query,used){
+ const out=[];
+ for(const raw of items||[]){
+  const w=String(raw||'').toLowerCase().trim().replace(/ +/g,' ');
+  if(!w||w===query||w.length>48||!/^[a-z][a-z' -]*$/.test(w)||(used&&used.has(w)))continue;
+  if(used)used.add(w);
+  out.push(w);if(out.length>=36)break;
+ }
+ return out;
+}
+function localRhymeOptions(query){
+ const q=normalRhymeQuery(query);if(!q)return{tight:[],near:[],flow:[]};
+ const tokens=q.split(' '),last=tokens[tokens.length-1],known=RHYME_PHRASE_BANK[q];
+ const exact=[...(WORD_INDEX.get(last)||[]),...(RHYME_EXTRA_INDEX.get(last)||[])];
+ const tight=(known?known.tight.slice():[]);
+ // For unmatched full phrases, suggest useful end-word replacements rather than nonsense phrases.
+ if(!known||tokens.length===1)tight.push(...exact);
+ const near=known?known.near.slice():[];
+ if(RHYME_NEAR_FAMILIES[last])near.push(...RHYME_NEAR_FAMILIES[last]);
+ const flow=known?known.flow.slice():[];
+ const used=new Set();
+ return {tight:rhymeUnique(tight,q,used),near:rhymeUnique(near,q,used),flow:rhymeUnique(flow,q,used)};
+}
+
+// Ranked, phonetic-aware rhyme engine. We never present loose cadence as a perfect rhyme.
+const RHYME_LIMIT=12;
+const RHYME_REMOTE_PHONES=new Map();
+const RHYME_REMOTE_SYLL=new Map();
+const RHYME_LOCAL_PRON={
+'no':'N OW1','pun':'P AH1 N','fun':'F AH1 N','so':'S OW1','done':'D AH1 N','go':'G OW1','run':'R AH1 N',
+'low':'L OW1','sun':'S AH1 N','know':'N OW1','one':'W AH1 N','show':'SH OW1','slow':'S L OW1',
+'shogun':'SH OW1 G AH2 N','shotgun':'SH AA1 T G AH2 N','awesome':'AO1 S AH0 M','not':'N AA1 T',
+'numb':'N AH1 M','nuts':'N AH1 T S','young':'Y AH1 NG','bunch':'B AH1 N CH','some':'S AH1 M',
+'whole':'HH OW1 L','got':'G AA1 T','come':'K AH1 M','drum':'D R AH1 M','love':'L AH1 V',
+'problem':'P R AA1 B L AH0 M','blossom':'B L AA1 S AH0 M','rock':'R AA1 K','on':'AA1 N',
+'last':'L AE1 S T','lost':'L AO1 S T','up':'AH1 P','night':'N AY1 T','light':'L AY1 T',
+'let':'L EH1 T','get':'G EH1 T','set':'S EH1 T','head':'HH EH1 D',
+'the':'DH AH0','way':'W EY1','back':'B AE1 K','out':'AW1 T','time':'T AY1 M',
+'day':'D EY1','play':'P L EY1','down':'D AW1 N','right':'R AY1 T',
+'stop':'S T AA1 P','top':'T AA1 P','drop':'D R AA1 P','new':'N UW1'
+};
+const RHYME_VOWELS=new Set(['AA','AE','AH','AO','AW','AY','EH','ER','EY','IH','IY','OW','OY','UH','UW']);
+function rhymePhones(text){
+ const tokens=normalRhymeQuery(text).split(' ').filter(Boolean);
+ const joined=tokens.flatMap(t=>(RHYME_LOCAL_PRON[t]?.split(' ')||RHYME_REMOTE_PHONES.get(t)||[]));
+ return joined.length&&tokens.every(t=>RHYME_LOCAL_PRON[t]||RHYME_REMOTE_PHONES.has(t))?joined:null;
+}
+function externalPhones(obj){
+ const tag=(obj.tags||[]).find(x=>typeof x==='string'&&x.startsWith('pron:'));
+ if(!tag)return null;
+ const phones=tag.slice(5).trim().split(/\s+/);
+ return phones.length&&phones.some(t=>RHYME_VOWELS.has(t.replace(/[012]$/,'')))?phones:null;
+}
+function rhymeNucleus(phones){
+ if(!phones||!phones.length)return null;
+ // The last stressed syllable's vowel + its coda determines the ending rhyme sound.
+ let i=-1;
+ for(let j=0;j<phones.length;j++)if(/1$/.test(phones[j])&&RHYME_VOWELS.has(phones[j].replace(/[012]$/,'')))i=j;
+ if(i===-1)for(let j=0;j<phones.length;j++)if(/2$/.test(phones[j])&&RHYME_VOWELS.has(phones[j].replace(/[012]$/,'')))i=j;
+ if(i===-1)for(let j=0;j<phones.length;j++)if(/0$/.test(phones[j])&&RHYME_VOWELS.has(phones[j].replace(/[012]$/,'')))i=j;
+ return i===-1?null:phones.slice(i).map(x=>x.replace(/[012]$/,''));
+}
+function rhymesActuallyMatch(a,b){
+ if(!a||!b)return null;
+ const ra=rhymeNucleus(a),rb=rhymeNucleus(b);
+ if(!ra||!rb)return null;
+ return ra.join(' ')==rb.join(' ');
+}
+function roughWordSyllables(word){
+ if(!word)return 0;
+ const phones=rhymePhones(word);
+ if(phones)return phones.filter(p=>RHYME_VOWELS.has(p.replace(/[012]$/,''))).length;
+ const basic=word.toLowerCase().replace(/[^a-z]/g,'').replace(/e$/,'').match(/[aeiouy]+/g);
+ return Math.max(1,basic?basic.length:1);
+}
+function rhymeSyllables(text,known){
+ if(Number.isInteger(known)&&known>0)return known;
+ return normalRhymeQuery(text).split(' ').filter(Boolean).reduce((n,w)=>n+(RHYME_REMOTE_SYLL.get(w)||roughWordSyllables(w)),0);
+}
+function collectRhymeCandidates(query,options,network){
+ const map=new Map(),querySyll=rhymeSyllables(query),qPhones=rhymePhones(query),queryWords=query.split(' ').length;
+ const add=(items,tier,online=false)=>{
+  (items||[]).forEach((entry,i)=>{
+   const raw=typeof entry==='string'?entry:entry?.word;
+   const w=normalRhymeQuery(raw);
+   if(!w||w===query||w.length>45||map.has(w))return;
+   let phones=typeof entry==='string'?rhymePhones(w):externalPhones(entry)||rhymePhones(w);
+   const syll=rhymeSyllables(w,typeof entry==='string'?undefined:entry?.numSyllables);
+   const core=rhymesActuallyMatch(qPhones,phones);
+   let category=tier;
+   // Pronunciations can correct spelling-based false positives.
+   if(core===false&&tier==='tight')category='near';
+   if(core===true&&tier==='near')category='tight';
+   // Relative strength prioritises real sound, then syllables & word stress.
+   const syllDiff=Math.abs(querySyll-syll);
+   const wordDiff=Math.abs(queryWords-w.split(' ').length);
+   const syllPenalty=syllDiff*24;
+   let score=category==='tight'?160:category==='near'?95:30;
+   score-=syllPenalty+wordDiff*10;
+   if(core===true)score+=30;
+   if(core===false)score-=12;
+   if(w.split(' ')[0]===query.split(' ')[0]&&queryWords>1)score+=6;
+   if(phones&&qPhones){
+     const vowels=p=>p.filter(x=>RHYME_VOWELS.has(x.replace(/[012]$/,''))).map(x=>x.replace(/[012]$/,''));
+     const a=vowels(qPhones),b=vowels(phones);
+     if(a.length>1&&b.length>1&&a[a.length-2]===b[b.length-2]){
+       const twoVowelsMatch=a.slice(-2).join('|')===b.slice(-2).join('|');
+       score+=twoVowelsMatch?25:9;
+       if(twoVowelsMatch&&queryWords>1&&w.split(' ').length===1&&syll===querySyll)score+=30;
+     }
+   }
+   score-=Math.min(i,50)*0.27;
+   map.set(w,{word:w,category,score,syllables:syll});
+  });
+ };
+ // Prioritise high-quality hand-curated local matches with online phonetic re-ranking.
+ add(options.tight,'tight');
+ add(options.near,'near');
+ add(options.flow,'flow');
+ if(network){
+  add(network.tight,'tight',true);
+  add(network.near,'near',true);
+  add(network.flow,'flow',true);
+ }
+ return [...map.values()].sort((a,b)=>b.score-a.score||a.word.localeCompare(b.word)).slice(0,RHYME_LIMIT);
+}
+function showRhymeOptions(q,options,network){
+ const output=$('rhymes-output');output.replaceChildren();
+ if(!q){const p=document.createElement('p');p.className='hint';p.textContent='Type your word or phrase, e.g. “no pun”, to find the closest sounding rhymes.';output.append(p);$('rhyme-status').textContent='12 closest matches · sound and syllable priority';return}
+ const list=collectRhymeCandidates(q,options,network);
+ if(!list.length){const p=document.createElement('p');p.className='hint';p.textContent='No confirmed offline rhymes yet. Search online for more matches, or ask ChatGPT.';output.append(p)}
+ else {
+  const wrap=document.createElement('div');wrap.className='rhyme-ranked';
+  list.forEach((item,i)=>{
+   const b=document.createElement('button');b.type='button';b.className='rhyme-ranked-item';
+   b.title='Add '+item.word+' to your lyrics';
+   const rank=document.createElement('span');rank.className='rhyme-rank';rank.textContent=String(i+1).padStart(2,'0');
+   const w=document.createElement('span');w.className='rhyme-text';w.textContent=item.word;
+   const tag=document.createElement('span');tag.className='rhyme-quality '+item.category;
+   tag.textContent=item.category==='tight'?'Tight':item.category==='near'?'Near':'Loose';
+   const syll=document.createElement('span');syll.className='rhyme-syll';syll.textContent=item.syllables+' syl';
+   b.append(rank,w,tag,syll);b.addEventListener('click',()=>insertAtCursor(item.word));wrap.append(b);
+  });output.append(wrap);
+ }
+ const near=list.filter(x=>x.category==='near').length,loose=list.filter(x=>x.category==='flow').length;
+ $('rhyme-status').textContent=list.length+' closest match'+(list.length===1?'':'es')+' · '+(network?'online + offline':'offline')+(near||loose?' · '+(near+loose)+' marked near/loose':'')+(list.length<12?' · fewer than 12 usable matches':'');
+}
+async function fetchRhymeExtras(q,signal){
+ const last=q.split(' ').pop();
+ const urls=[
+  'https://api.datamuse.com/words?rel_rhy='+encodeURIComponent(last)+'&md=sr&max=100',
+  'https://api.datamuse.com/words?rel_nry='+encodeURIComponent(last)+'&md=sr&max=80',
+  'https://api.datamuse.com/words?sl='+encodeURIComponent(q)+'&md=sr&max=55',
+  'https://api.datamuse.com/words?sp='+encodeURIComponent(last)+'&md=sr&max=12'
+ ];
+ const data=await Promise.allSettled(urls.map(async url=>{
+  const resp=await fetch(url,{signal,mode:'cors'});if(!resp.ok)throw Error('Rhyme API unavailable');
+  const list=await resp.json();return Array.isArray(list)?list:[];
+ }));
+ if(!data.some(x=>x.status==='fulfilled'))throw Error('Rhyme service unreachable');
+ const get=i=>data[i]?.status==='fulfilled'?data[i].value.filter(x=>typeof x.word==='string'):[];
+ const exactLast=get(3).find(item=>normalRhymeQuery(item.word)===last);
+ if(exactLast){const pron=externalPhones(exactLast);if(pron)RHYME_REMOTE_PHONES.set(last,pron);if(Number.isInteger(exactLast.numSyllables))RHYME_REMOTE_SYLL.set(last,exactLast.numSyllables)}
+ return {tight:get(0),near:get(1),flow:get(2)};
+}
+function updateRhymes(){
+ const q=normalRhymeQuery($('rhyme-query').value);
+ rhymeSearchId++;const id=rhymeSearchId;
+ if(rhymeWait)clearTimeout(rhymeWait);
+ if(rhymeController)rhymeController.abort();
+ const local=localRhymeOptions(q);
+ showRhymeOptions(q,local,null);
+ if(!q||q.length<2||q.length>55)return;
+ if(RHYME_CACHE.has(q)){showRhymeOptions(q,local,RHYME_CACHE.get(q));return}
+ rhymeWait=setTimeout(async()=>{
+  rhymeController=new AbortController();
+  const timeout=setTimeout(()=>rhymeController.abort(),4500);
+  try{
+   const online=await fetchRhymeExtras(q,rhymeController.signal);
+   if(id!==rhymeSearchId)return;
+   if(RHYME_CACHE.size>100)RHYME_CACHE.clear();
+   RHYME_CACHE.set(q,online);showRhymeOptions(q,local,online);
+  }catch(e){if(id===rhymeSearchId)$('rhyme-status').textContent='Offline rhyme ranking · online extras unavailable'}
+  finally{clearTimeout(timeout)}
+ },400);
+}
+function useLastLyricRhyme(){
+ const pad=$('lyrics'),previous=pad.value.slice(0,pad.selectionStart).trim();
+ const clean=normalRhymeQuery(previous.split('\n').pop());
+ const words=clean.split(' ').filter(Boolean);
+ if(!words.length){toast('Write a lyric line first');return}
+ $('rhyme-query').value=words.slice(-2).join(' ');updateRhymes();$('rhyme-query').focus();
+}
+function updateAlliteration(){const q=$('alliteration-query').value.toLowerCase().trim();const c=q.match(/[a-z]/)?.[0];const words=c?(ALLIT[c]||'').split(' ').filter(Boolean):[];wordsRender('alliteration-output',words,'Enter a starting letter or word. Tap a result to put it into your pad.')}
+function generateAIPrompt(){
+ const query=normalRhymeQuery($('rhyme-query').value);
+ const p=getProject();
+ const last=normalRhymeQuery((p?.lyrics||'').trim().split('\n').pop()||'').split(' ').filter(Boolean).slice(-2).join(' ');
+ const focus=query||last;
+ if(!focus)return null;
+ return [
+  'You are an expert UK Makina MC rhyme coach. At '+(p?.bpm||165)+' BPM, find precisely 20 perfect or near-perfect rhymes for: "'+focus+'".',
+  'IMPORTANT: Prioritise what the WORDS SOUND LIKE when spoken aloud in natural British English, rather than spelling.',
+  'Rank the 20 from closest phonetic match to least. Match syllable count, syllable stress, stressed vowel(s), and the ending consonants. For multi-word phrases, prioritise whole-phrase rhymes, including compound and multisyllabic matches.',
+  'Use perfect rhymes first; when genuinely fewer than 20 exist, use the closest near-perfect/slant rhymes and label them honestly. Do NOT claim a cadence-only match is a perfect rhyme or pad the list with nonsense.',
+  'Answer in a numbered list of 20 distinct natural words or phrases. For each, show the rhyme, its syllable count, and Perfect or Near-perfect status. No filler, no generic songwriting advice.',
+  'Example: “no pun” can match “no fun” very closely, “shogun” is an accent-dependent near rhyme; don’t treat “awesome” as perfect.',
+  'Make suggestions useful for authentic fast MC delivery, and do not copy any existing artist lyrics.'
+ ].join('\n');
+}
+function askChatGPTRhymes(){
+ const prompt=generateAIPrompt();
+ if(!prompt){toast('Enter a rhyme word or write a lyric line first');$('rhyme-query').focus();return}
+ // chatgpt.com can pre-fill the composer, but external sites cannot silently submit it.
+ const url='https://chatgpt.com/?prompt='+encodeURIComponent(prompt);
+ window.location.assign(url);
+}
+async function copyText(str){try{await navigator.clipboard.writeText(str);return true}catch(e){const t=document.createElement('textarea');t.value=str;document.body.append(t);t.select();const ok=document.execCommand('copy');t.remove();return ok}}
+function stopDictation(){if(recog)try{recog.stop()}catch{};recognising=false;$('mic-button').classList.remove('listening');$('mic-label').textContent='Tap to dictate';$('mic-button').setAttribute('aria-label','Start speech-to-text')}
+function toggleDictation(){if(window.AndroidVoice&&window.__flowbookNativeToken){window.AndroidVoice.start(window.__flowbookNativeToken);return}if(recognising){stopDictation();return}const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('Voice recognition is not supported in this browser');$('mic-help').textContent='Try Chrome on Android or a supported browser over HTTPS.';return}try{recog=new SR();recog.lang='en-GB';recog.continuous=true;recog.interimResults=true;recog.onstart=()=>{recognising=true;$('mic-button').classList.add('listening');$('mic-label').textContent='Listening… tap to stop';$('mic-help').textContent='Speak your lyrics clearly near the microphone.'};recog.onresult=e=>{let finished='',partial='';for(let i=e.resultIndex;i<e.results.length;i++){const s=e.results[i][0].transcript;if(e.results[i].isFinal)finished+=s+'\n';else partial+=s}if(finished)insertAtCursor((el.lyrics.value&&!el.lyrics.value.endsWith('\n')?'\n':'')+finished);$('voice-interim').textContent=partial||''};recog.onerror=e=>{const code=e.error||'unknown';$('mic-help').textContent='Recognition error: '+code;if(code==='not-allowed'||code==='service-not-allowed')toast('Please allow microphone access in your browser')};recog.onend=()=>{stopDictation();$('voice-interim').textContent=''};recog.start()}catch(e){toast('Could not start microphone recognition')}}
+async function onUpload(file){if(recorderState!=='idle'){toast('Stop recording before changing the uploaded audio');return}if(!file)return;if(!db){toast('Audio linking needs browser storage permission/support');return}const p=getProject();const max=150*1024*1024;if(file.size>max){toast('This prototype has a 150 MB limit per audio file');return}try{$('audio-meta').textContent='Saving instrumental…';await op('audio','readwrite','put',{id:p.id,blob:file});p.audioName=file.name;p.referenceSource='local';await saveNow();await loadAudio(p);chooseSource('local');renderProjects();toast('Audio uploaded and linked with this project')}catch(e){$('audio-meta').textContent='Could not save this file';toast('Could not store audio: device storage may be full')}}
+// One audio context powers metronome clicks and the instrumental pitch effect.
+function ensureAudioContext(){if(sharedAudioContext)return sharedAudioContext;const AudioAPI=window.AudioContext||window.webkitAudioContext;if(!AudioAPI)throw new Error('Web Audio not available');sharedAudioContext=new AudioAPI();return sharedAudioContext}
+function tempo(){return Math.max(60,Math.min(250,Number(el.bpm.value)||165))}
+function updatePitchLabel(){const v=Number($('pitch-shift').value);$('pitch-value').textContent=v===0?'Original key (0)':`${v>0?'+':''}${v} semitone${Math.abs(v)===1?'':'s'}`}
+function applySpeed(){el.audio.playbackRate=Number($('playback-speed').value)||1;for(const name of ['preservesPitch','mozPreservesPitch','webkitPreservesPitch']){if(name in el.audio)try{el.audio[name]=true}catch{}}}
+function createPitchRouting(){if(pitchMediaSource)return;const ctx=ensureAudioContext();pitchMediaSource=ctx.createMediaElementSource(el.audio);pitchDry=ctx.createGain();pitchWet=ctx.createGain();pitchDry.gain.value=1;pitchWet.gain.value=0;pitchMediaSource.connect(pitchDry).connect(ctx.destination);pitchWet.connect(ctx.destination);for(let i=0;i<2;i++){const d=ctx.createDelay(0.25),g=ctx.createGain();d.delayTime.value=.01;g.gain.value=0;pitchMediaSource.connect(d);d.connect(g);g.connect(pitchWet);pitchDelays.push(d);pitchGains.push(g)}}
+function stopPitchModulation(){if(!pitchModulator)return;try{pitchModulator.stop()}catch{}try{pitchModulator.disconnect()}catch{}pitchModulator=null}
+// Two overlapping moving delays give an approximate real-time pitch shift.
+// The original media playbackRate is untouched: this changes pitch, not tempo.
+async function applyPitch(semitones){semitones=Number(semitones)||0;updatePitchLabel();if(!semitones&&!pitchMediaSource)return;createPitchRouting();const ctx=ensureAudioContext();try{await ctx.resume()}catch{};const t=ctx.currentTime;if(!semitones){pitchDry.gain.setTargetAtTime(1,t,.013);pitchWet.gain.setTargetAtTime(0,t,.013);stopPitchModulation();return}
+ const ratio=Math.pow(2,semitones/12),minDelay=.012,span=.045,period=span/Math.abs(1-ratio),sampleLength=4096;
+ const b=ctx.createBuffer(4,sampleLength,ctx.sampleRate),channels=[0,1,2,3].map(i=>b.getChannelData(i));
+ for(let i=0;i<sampleLength;i++){const phase=i/sampleLength,other=(phase+.5)%1;channels[0][i]=minDelay+span*(ratio>1?1-phase:phase);channels[1][i]=minDelay+span*(ratio>1?1-other:other);channels[2][i]=.5-.5*Math.cos(2*Math.PI*phase);channels[3][i]=.5-.5*Math.cos(2*Math.PI*other)}
+ const mod=ctx.createBufferSource(),split=ctx.createChannelSplitter(4);mod.buffer=b;mod.loop=true;mod.playbackRate.value=sampleLength/(ctx.sampleRate*period);mod.connect(split);
+ for(let i=0;i<2;i++){pitchDelays[i].delayTime.value=0;pitchGains[i].gain.value=0;split.connect(pitchDelays[i].delayTime,i);split.connect(pitchGains[i].gain,i+2)}
+ // Turn on the replacement modulation before retiring the previous one.
+ const prev=pitchModulator;pitchModulator=mod;mod.start();pitchDry.gain.setTargetAtTime(0,t,.017);pitchWet.gain.setTargetAtTime(1,t,.017);
+ if(prev){try{prev.stop()}catch{}try{prev.disconnect()}catch{}}
+}
+async function onPitchInput(){const v=Number($('pitch-shift').value);updatePitchLabel();scheduleSave();try{await applyPitch(v)}catch(e){console.error('Pitch tool:',e);toast('Pitch changing needs Web Audio support in this browser');$('pitch-shift').value='0';updatePitchLabel();if(pitchDry){pitchDry.gain.value=1;pitchWet.gain.value=0}}}
+function drawBeats(){const meter=Number($('metro-meter').value)||4;const box=$('metro-beats');box.replaceChildren();for(let i=0;i<meter;i++){const dot=document.createElement('span');dot.className='beat-led'+(i===0?' first':'');dot.setAttribute('aria-label',i===0?'Downbeat':'Beat '+(i+1));box.append(dot)}}
+function flashBeat(beat){for(const [i,e] of [...$('metro-beats').children].entries())e.classList.toggle('active',i===beat)}
+function updateMetronomeUI(){drawBeats();$('metro-bpm-label').textContent=tempo();$('metro-volume-label').textContent=$('metro-volume').value+'%';$('metro-status').textContent=metroRunning?'Click running · accent on beat 1':'Metronome off';$('metro-toggle').textContent=metroRunning?'■ Stop metronome':'▶ Start metronome';$('metro-toggle').classList.toggle('primary',!metroRunning)}
+function metronomeClick(when,accent){const ctx=ensureAudioContext();const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.setValueAtTime(accent?1600:1050,when);osc.frequency.exponentialRampToValueAtTime(accent?900:660,when+.032);const volume=Number($('metro-volume').value)/100;gain.gain.setValueAtTime(.0001,when);gain.gain.exponentialRampToValueAtTime(Math.max(.0001,volume*(accent?.5:.3)),when+.002);gain.gain.exponentialRampToValueAtTime(.0001,when+.045);osc.connect(gain).connect(ctx.destination);osc.start(when);osc.stop(when+.048)}
+function metronomeScheduler(){if(!metroRunning||!sharedAudioContext)return;const ctx=sharedAudioContext;while(metroNextTime<ctx.currentTime+.11){const beat=metroBeat,when=metroNextTime;metronomeClick(when,beat===0);const timeout=setTimeout(()=>{if(metroRunning)flashBeat(beat);metroScheduledUI=metroScheduledUI.filter(x=>x!==timeout)},Math.max(0,(when-ctx.currentTime)*1000));metroScheduledUI.push(timeout);metroBeat=(metroBeat+1)%Number($('metro-meter').value);metroNextTime+=60/tempo()}}
+function stopMetronome(){metroRunning=false;if(metroClock){clearInterval(metroClock);metroClock=null}metroScheduledUI.forEach(clearTimeout);metroScheduledUI=[];flashBeat(-1);updateMetronomeUI()}
+function restartMetronome(){if(!metroRunning)return;metroScheduledUI.forEach(clearTimeout);metroScheduledUI=[];metroBeat=0;metroNextTime=ensureAudioContext().currentTime+.065;metronomeScheduler()}
+async function toggleMetronome(){if(metroRunning){stopMetronome();return}try{const ctx=ensureAudioContext();await ctx.resume();metroRunning=true;restartMetronome();metroClock=setInterval(metronomeScheduler,25);updateMetronomeUI()}catch(e){console.error('Metronome:',e);toast('This browser cannot play metronome clicks')}}
+function tapTempo(){const now=performance.now();if(tapTimes.length&&now-tapTimes[tapTimes.length-1]>2200)tapTimes=[];tapTimes.push(now);tapTimes=tapTimes.slice(-6);if(tapTimes.length>1){const intervals=tapTimes.slice(1).map((v,i)=>v-tapTimes[i]);const interval=intervals.reduce((a,b)=>a+b,0)/intervals.length;const newBpm=Math.max(60,Math.min(250,Math.round(60000/interval)));el.bpm.value=newBpm;tempoChanged();$('metro-status').textContent=`Tapped ${newBpm} BPM${metroRunning?' · click running':''}`}else $('metro-status').textContent='Keep tapping at the beat…'}
+function tempoChanged(){const bpm=tempo();el.bpm.value=bpm;$('metro-bpm-label').textContent=bpm;scheduleSave();if(metroRunning)restartMetronome()}
+// Public SoundCloud Widget API: use its embed, not a downloaded stream.
+function validSoundCloudUrl(text){try{const u=new URL(text.trim());if(u.protocol!=='https:')return null;if(!['soundcloud.com','www.soundcloud.com','m.soundcloud.com','on.soundcloud.com'].includes(u.hostname))return null;if(!u.pathname||u.pathname==='/')return null;u.hash='';return u.href}catch{return null}}
+function ensureSoundCloudAPI(){if(window.SC?.Widget)return Promise.resolve();if(scScriptPromise)return scScriptPromise;scScriptPromise=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='https://w.soundcloud.com/player/api.js';script.onload=()=>window.SC?.Widget?resolve():reject(new Error('SoundCloud Widget API unavailable'));script.onerror=()=>reject(new Error('SoundCloud player controls could not load'));document.head.append(script)}).catch(err=>{scScriptPromise=null;throw err});return scScriptPromise}
+function updateSoundCloudPosition(seconds){if(!isSoundcloud())return;scPosition=Math.max(0,Number(seconds)||0);if(audioLoop.on&&audioLoop.a!==null&&audioLoop.b!==null&&scPosition>=audioLoop.b&&soundcloudWidget&&soundcloudReady){scPosition=audioLoop.a;soundcloudWidget.seekTo(audioLoop.a*1000)}}
+async function loadSoundCloud(url){const gen=++scGeneration;scPosition=0;scDuration=0;soundcloudReady=false;soundcloudWidget=null;const container=$('soundcloud-player');container.replaceChildren();const iframe=document.createElement('iframe');iframe.id='soundcloud-embed';iframe.title='SoundCloud reference track';iframe.allow='autoplay';iframe.loading='lazy';iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(url)+'&color=%2336ebd6&auto_play=false&show_comments=false&show_user=true&visual=false';container.append(iframe);
+ $('soundcloud-message').textContent='Connecting SoundCloud controls… An internet connection is required.';
+ try{await ensureSoundCloudAPI();if(gen!==scGeneration||!isSoundcloud())return;const widget=window.SC.Widget(iframe);soundcloudWidget=widget;
+ widget.bind(window.SC.Widget.Events.READY,()=>{if(gen!==scGeneration||!isSoundcloud())return;soundcloudReady=true;$('soundcloud-message').textContent='SoundCloud ready · Play in the embedded player, then use Set A / Set B to mark loops. Pitch and speed require an uploaded file.';widget.getDuration(ms=>{if(gen!==scGeneration)return;scDuration=Number(ms)/1000||0;updateLoopUI()})});
+ widget.bind(window.SC.Widget.Events.PLAY_PROGRESS,data=>{if(gen!==scGeneration)return;updateSoundCloudPosition((data?.currentPosition||0)/1000)});
+ widget.bind(window.SC.Widget.Events.SEEK,data=>{if(gen!==scGeneration)return;scPosition=(data?.currentPosition||0)/1000});
+ widget.bind(window.SC.Widget.Events.ERROR,()=>{if(gen!==scGeneration)return;$('soundcloud-message').textContent='SoundCloud could not play this URL. Check the link, track visibility and embedding permissions.'});
+ }catch(e){console.warn('SoundCloud control load issue:',e);if(gen!==scGeneration)return;$('soundcloud-message').textContent='Embedded playback may still work, but automated looping needs SoundCloud player controls and an internet connection.'}
+}
+async function attachSoundCloud(){const url=validSoundCloudUrl($('soundcloud-link').value);if(!url){toast('Paste a valid https://soundcloud.com track link');return}const p=getProject();p.soundcloudUrl=url;p.referenceSource='soundcloud';$('soundcloud-link').value=url;$('soundcloud-open').href=url;$('soundcloud-open').style.display='';chooseSource('soundcloud');await saveNow();loadSoundCloud(url);toast('SoundCloud reference saved with project')}
+function removeSoundCloud(){const p=getProject();if(!p.soundcloudUrl)return;if(soundcloudWidget)try{soundcloudWidget.pause()}catch{};p.soundcloudUrl='';$('soundcloud-link').value='';$('soundcloud-open').style.display='none';$('soundcloud-player').replaceChildren();soundcloudReady=false;soundcloudWidget=null;scDuration=0;scGeneration++;p.referenceSource=p.audioName?'local':'none';chooseSource(p.referenceSource==='local'?'local':'soundcloud');scheduleSave();toast('SoundCloud link removed')}
+async function currentPositionForMarker(){if(!isSoundcloud())return sourcePosition();if(!soundcloudWidget||!soundcloudReady){toast('Wait until the SoundCloud player is ready');return null}return new Promise(resolve=>soundcloudWidget.getPosition(ms=>resolve(Number(ms)/1000||0)))}
+async function markLoop(point){if(!sourceIsPresent()){toast('Link an uploaded file or SoundCloud track first');return}const sec=await currentPositionForMarker();if(sec===null)return;setLoopPoint(point,sec,false)}
+function setLoopPoint(point,seconds,jump=false){if(!Number.isFinite(seconds)||seconds<0){toast('Enter a valid time, such as 1:23.5');updateLoopUI();return false}const duration=sourceDuration();if(duration&&seconds>=duration){toast('Loop marker must be within the track');updateLoopUI();return false}
+ const key=point==='a'?'a':'b';audioLoop[key]=Math.round(seconds*10)/10;
+ if(audioLoop.a!==null&&audioLoop.b!==null&&audioLoop.b<=audioLoop.a){audioLoop.on=false;toast('Loop end B must come after loop start A')}
+ updateLoopUI();scheduleSave();if(jump)seekSource(seconds);return true}
+function applyManualMarker(point){const input=$(point==='a'?'loop-start-time':'loop-end-time');const sec=parseLoopTime(input.value);if(sec===null){audioLoop[point]=null;audioLoop.on=false;updateLoopUI();scheduleSave();return}setLoopPoint(point,sec,false)}
+function seekSource(seconds){if(!sourceIsPresent())return;if(isSoundcloud()){if(soundcloudWidget&&soundcloudReady){soundcloudWidget.seekTo(seconds*1000);scPosition=seconds}else toast('SoundCloud player not ready')}else if(el.audio.src){try{el.audio.currentTime=seconds}catch{}}}
+function checkLocalLoop(){if(!isSoundcloud()&&audioLoop.on&&audioLoop.a!==null&&audioLoop.b!==null&&audioLoop.b>audioLoop.a&&sourceIsPresent()&&!el.audio.paused&&el.audio.currentTime>=audioLoop.b){el.audio.currentTime=audioLoop.a}}
+function localLoopTick(){checkLocalLoop();localLoopFrame=requestAnimationFrame(localLoopTick)}
+function cancelCountIn(){countInToken++;for(const timer of countInTimers)clearTimeout(timer);countInTimers=[];countingIn=false;$('count-in-cancel').disabled=true;$('count-in-start').disabled=false;$('count-in-display').textContent='Ready'}
+function queueCountInTimer(fn,ms){countInTimers.push(setTimeout(fn,ms))}
+async function countInAndPlay(){if(countingIn){cancelCountIn();return}if(!sourceIsPresent()){toast('Link a reference track before using count-in');return}if(isSoundcloud()&&!soundcloudReady){toast('SoundCloud is loading — start once its player is ready');return}
+ const beats=Number($('count-in-beats').value)||4,period=60/tempo();let ctx;try{ctx=ensureAudioContext();await ctx.resume()}catch(e){toast('Audio context unavailable for count-in');return}
+ stopMetronome();cancelCountIn();countingIn=true;const token=countInToken;
+ $('count-in-cancel').disabled=false;$('count-in-start').disabled=true;
+ const begin=ctx.currentTime+.09;for(let i=0;i<beats;i++){metronomeClick(begin+i*period,i%4===0);queueCountInTimer(()=>{if(countInToken===token)$('count-in-display').textContent=`${beats-i} · ${i%4===0?'ONE':'beat'}`},(begin-ctx.currentTime+i*period)*1000)}
+ queueCountInTimer(async()=>{if(countInToken!==token)return;try{const pos=audioLoop.on&&audioLoop.a!==null?audioLoop.a:0;seekSource(pos);if(isSoundcloud()){soundcloudWidget.play()}else await el.audio.play();$('count-in-display').textContent='GO!'}catch(e){console.error(e);toast('Playback did not start; use the player play button')}
+ countingIn=false;$('count-in-cancel').disabled=true;$('count-in-start').disabled=false;},(begin-ctx.currentTime+beats*period)*1000)
+}
+function initEvents(){
+ ['title','subtitle','bpm','lyrics'].forEach(k=>el[k].addEventListener('input',scheduleSave));
+ $('new-project').addEventListener('click',newProject);$('duplicate-project').addEventListener('click',duplicateProject);$('delete-project').addEventListener('click',deleteProject);el.mobile.addEventListener('change',e=>selectProject(e.target.value));
+ $('use-local').addEventListener('click',()=>{const p=getProject();if(!p.audioName){chooseSource('local');toast('Use Upload MP3 / WAV to attach a local track')}else chooseSource('local')});
+ $('use-soundcloud').addEventListener('click',()=>chooseSource('soundcloud'));
+ $('soundcloud-attach').addEventListener('click',attachSoundCloud);$('soundcloud-remove').addEventListener('click',removeSoundCloud);$('soundcloud-link').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();attachSoundCloud()}});
+ $('audio-upload').addEventListener('change',e=>{onUpload(e.target.files[0]);e.target.value=''});
+ $('remove-audio').addEventListener('click',async()=>{const p=getProject();if(!p.audioName)return;if(!confirm('Remove the uploaded audio from this project? Your lyrics and SoundCloud link, if any, will stay.'))return;if(db)await op('audio','readwrite','delete',p.id);p.audioName='';if(p.referenceSource==='local')p.referenceSource=p.soundcloudUrl?'soundcloud':'none';await saveNow();await loadAudio(p);chooseSource(p.referenceSource==='soundcloud'?'soundcloud':'local');toast('Uploaded audio removed')});
+ $('playback-speed').addEventListener('change',applySpeed);$('pitch-shift').addEventListener('input',onPitchInput);$('pitch-reset').addEventListener('click',()=>{$('pitch-shift').value='0';onPitchInput()});
+ el.audio.addEventListener('play',()=>{applySpeed();if(Number($('pitch-shift').value))applyPitch(Number($('pitch-shift').value)).catch(console.warn);else if(sharedAudioContext&&pitchMediaSource)sharedAudioContext.resume().catch(()=>{})});
+ el.audio.addEventListener('loadedmetadata',updateLoopUI);el.audio.addEventListener('timeupdate',checkLocalLoop);el.audio.addEventListener('ended',()=>{if(recorderState==='recording')stopVocalRecording()});
+ el.bpm.addEventListener('change',tempoChanged);el.bpm.addEventListener('input',()=>{$('metro-bpm-label').textContent=tempo();if(metroRunning)restartMetronome()});
+ $('metro-toggle').addEventListener('click',toggleMetronome);$('tap-tempo').addEventListener('click',tapTempo);$('metro-meter').addEventListener('change',()=>{updateMetronomeUI();scheduleSave();if(metroRunning)restartMetronome()});$('metro-volume').addEventListener('input',()=>{updateMetronomeUI();scheduleSave()});
+ $('loop-a').addEventListener('click',()=>markLoop('a'));$('loop-b').addEventListener('click',()=>markLoop('b'));
+ $('loop-start-time').addEventListener('change',()=>applyManualMarker('a'));$('loop-end-time').addEventListener('change',()=>applyManualMarker('b'));
+ for(const [point,id] of [['a','loop-start-slider'],['b','loop-end-slider']]){$(id).addEventListener('input',()=>{const sec=Number($(id).value);audioLoop[point]=sec;if(audioLoop.a!==null&&audioLoop.b!==null&&audioLoop.b<=audioLoop.a)audioLoop.on=false;updateLoopUI();scheduleSave()});$(id).addEventListener('change',()=>seekSource(Number($(id).value)))}
+ $('toggle-loop').addEventListener('click',()=>{if(audioLoop.a===null||audioLoop.b===null||audioLoop.b<=audioLoop.a){toast('Set A and B, with B later than A');return}audioLoop.on=!audioLoop.on;if(audioLoop.on&&sourcePosition()>audioLoop.b)seekSource(audioLoop.a);updateLoopUI();scheduleSave()});
+ $('clear-loop').addEventListener('click',()=>{audioLoop={a:null,b:null,on:false};updateLoopUI();scheduleSave()});$('jump-loop-start').addEventListener('click',()=>{if(audioLoop.a===null){toast('Set loop start A first');return}seekSource(audioLoop.a)});
+ $('record-start').addEventListener('click',startVocalRecording);$('record-stop').addEventListener('click',stopVocalRecording);$('mix-preview').addEventListener('click',previewMix);$('mix-stop').addEventListener('click',stopMixPreview);$('take-download').addEventListener('click',downloadSelectedVocal);$('mix-wav').addEventListener('click',()=>exportMixedAudio('wav'));$('mix-mp3').addEventListener('click',()=>exportMixedAudio('mp3'));['music-level','voice-level','vocal-sync'].forEach(id=>$(id).addEventListener('input',()=>{updateMixControls();scheduleSave()}));$('count-in-start').addEventListener('click',countInAndPlay);$('count-in-cancel').addEventListener('click',cancelCountIn);$('count-in-beats').addEventListener('change',scheduleSave);
+ $('export-text').addEventListener('click',makeExport);$('insert-eight').addEventListener('click',()=>insertBars(8));$('insert-sixteen').addEventListener('click',()=>insertBars(16));$('insert-hook').addEventListener('click',()=>insertAtCursor('\n\n[HOOK]\n\n'));
+ document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>{x.classList.toggle('active',x===tab);x.setAttribute('aria-selected',x===tab?'true':'false')});document.querySelectorAll('.assist-item').forEach(x=>x.classList.toggle('active',x.id===tab.dataset.tab))}));
+ $('rhyme-use-line').addEventListener('click',useLastLyricRhyme);
+ $('rhyme-query').addEventListener('input',updateRhymes);$('alliteration-query').addEventListener('input',updateAlliteration);$('mic-button').addEventListener('click',toggleDictation);$('ask-ai-rhymes').addEventListener('click',askChatGPTRhymes);
+ window.addEventListener('pagehide',()=>{stopMetronome();cancelCountIn();if(localLoopFrame)cancelAnimationFrame(localLoopFrame);stopMixPreview();const p=getProject();if(p){syncFromForm();if(!db)persistLocal();else try{const tx=db.transaction('projects','readwrite');tx.objectStore('projects').put({...p})}catch{}}});
+ localLoopFrame=requestAnimationFrame(localLoopTick)
+}
+
+// ---- V4: dry vocal takes, headphone playback, layered preview & offline exports ----
+let recorderState='idle',micStream=null,micRecorder=null,recChunks=[],recTimer=null,recProjectId=null,recStartedAt=0,recStartOffset=0,recReferenceType='local';
+let localTakes=[],vocalURL=null,mixTimer=null,mixPreviewActive=false,mixPlayTimers=[],loadedTakeKey=null,mixExportBusy=false;
+const selectedTake=()=>localTakes.find(t=>t.key===getProject()?.selectedTake)||null;
+async function getProjectTakes(id){if(!db)return[];const all=await op('takes','readonly','getAll');return all.filter(t=>t.projectId===id).sort((a,b)=>b.created-a.created)}
+async function deleteProjectTakes(id){if(!db)return;const all=await getProjectTakes(id);for(const t of all)await op('takes','readwrite','delete',t.key)}
+function stopMixPreview(){mixPlayTimers.forEach(clearTimeout);mixPlayTimers=[];mixPreviewActive=false;const a=$('vocal-player');try{a.pause()}catch{};if(el.audio)try{el.audio.pause()}catch{};if(soundcloudWidget&&isSoundcloud())try{soundcloudWidget.pause()}catch{}}
+function updateMixControls(){const p=getProject();const music=Number($('music-level').value)/100,voice=Number($('voice-level').value)/100;
+ $('music-level-text').textContent=Math.round(music*100)+'%';$('voice-level-text').textContent=Math.round(voice*100)+'%';
+ const ms=Number($('vocal-sync').value);$('vocal-sync-text').textContent=(ms>0?'+':'')+ms+' ms';
+ el.audio.volume=music;$('vocal-player').volume=voice;
+ if(soundcloudWidget&&soundcloudReady)try{soundcloudWidget.setVolume(Math.round(music*100))}catch{}
+}
+function updateRecordStatus(msg){$('record-status').textContent=msg}
+function setRecorderUI(){const busy=recorderState!=='idle';$('record-start').disabled=busy;$('record-stop').disabled=!busy;
+ $('rec-indicator').classList.toggle('active',busy);$('rec-indicator').textContent=recorderState==='recording'?'● RECORDING':recorderState==='counting'?'● COUNT-IN':'● READY';
+ $('record-start').textContent=busy?'Recording session in progress':'● Count-in + record';
+}
+function showTakeList(){const area=$('take-list');area.replaceChildren();if(!localTakes.length){const node=document.createElement('div');node.className='take-empty';node.textContent='No recordings yet. Your first take will appear here.';area.append(node);return}
+ for(const t of localTakes){const row=document.createElement('div');row.className='take'+(t.key===getProject()?.selectedTake?' active':'');
+ const info=document.createElement('div');info.style.minWidth='0';const label=document.createElement('div');label.className='take-title';label.textContent=t.name;const sub=document.createElement('div');sub.className='take-sub';sub.textContent=`${formatTime(t.duration||0)} · Starts ${formatLoopTime(t.startAt||0)} · ${new Date(t.created).toLocaleDateString('en-GB')}`;info.append(label,sub);
+ const actions=document.createElement('div');actions.className='btns';const choose=document.createElement('button');choose.className='btn small'+(t.key===getProject()?.selectedTake?' primary':' ghost');choose.textContent=t.key===getProject()?.selectedTake?'Selected':'Select';choose.addEventListener('click',()=>chooseTake(t.key));const del=document.createElement('button');del.className='btn small warn';del.textContent='×';del.setAttribute('aria-label','Delete '+t.name);del.addEventListener('click',()=>deleteTake(t.key));actions.append(choose,del);row.append(info,actions);area.append(row)}
+}
+async function loadTakes(id){stopMixPreview();const a=$('vocal-player');if(vocalURL)URL.revokeObjectURL(vocalURL);vocalURL=null;a.removeAttribute('src');a.load();loadedTakeKey=null;
+ localTakes=await getProjectTakes(id);const p=getProject();if(!p||p.id!==id)return;
+ if(p.selectedTake&&!localTakes.some(t=>t.key===p.selectedTake))p.selectedTake=null;
+ if(!p.selectedTake&&localTakes.length)p.selectedTake=localTakes[0].key;
+ showTakeList();await loadSelectedVocal();
+}
+async function loadSelectedVocal(){const t=selectedTake();const a=$('vocal-player');a.pause();if(vocalURL){URL.revokeObjectURL(vocalURL);vocalURL=null}a.removeAttribute('src');a.load();loadedTakeKey=null;
+ if(t?.blob){vocalURL=URL.createObjectURL(t.blob);a.src=vocalURL;a.load();a.volume=Number($('voice-level').value)/100;loadedTakeKey=t.key}
+}
+async function chooseTake(key){if(recorderState!=='idle')return;const p=getProject();if(!localTakes.some(t=>t.key===key))return;stopMixPreview();p.selectedTake=key;await loadSelectedVocal();showTakeList();scheduleSave()}
+async function deleteTake(key){if(recorderState!=='idle')return;const t=localTakes.find(t=>t.key===key);if(!t||!confirm('Delete '+t.name+'? This recorded vocal cannot be recovered.'))return;
+ await op('takes','readwrite','delete',key);await loadTakes(getProject().id);scheduleSave();toast('Vocal take deleted')}
+function pickRecordingMime(){if(!window.MediaRecorder)return '';return ['audio/webm;codecs=opus','audio/mp4','audio/webm','audio/ogg;codecs=opus'].find(m=>MediaRecorder.isTypeSupported(m))||''}
+function clearRecordClickTimers(){if(recTimer){clearInterval(recTimer);recTimer=null}clearTimeout(mixTimer);mixTimer=null}
+async function startVocalRecording(){if(recorderState!=='idle')return;if(!sourceIsPresent()){toast('Upload an instrumental or attach a SoundCloud reference first');return}if(!window.MediaRecorder||!navigator.mediaDevices?.getUserMedia){toast('This browser cannot record microphone audio here. Use HTTPS and a current browser.');return}
+ if(recognising)stopDictation();stopMixPreview();cancelCountIn();stopMetronome();recorderState='counting';setRecorderUI();
+ recProjectId=activeId;recReferenceType=isSoundcloud()?'soundcloud':'local';
+ if(recReferenceType==='soundcloud'&&!soundcloudReady){recorderState='idle';setRecorderUI();toast('SoundCloud player is not ready');return}
+ if(audioLoop.on){audioLoop.on=false;updateLoopUI();scheduleSave();toast('A/B looping paused for a linear recording take')}
+ try{micStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false},video:false});
+ const mime=pickRecordingMime();micRecorder=mime?new MediaRecorder(micStream,{mimeType:mime}):new MediaRecorder(micStream);
+ recChunks=[];micRecorder.ondataavailable=e=>{if(e.data?.size)recChunks.push(e.data)};
+ micRecorder.onerror=e=>{console.error('Microphone recording failed:',e);updateRecordStatus('Recording error. Try another microphone or browser.');stopVocalRecording()};
+ micRecorder.onstop=finaliseTake;
+ const beats=Number($('count-in-beats').value)||4;const gap=60000/tempo();let index=0;
+ const ctx=ensureAudioContext();await ctx.resume();const begin=ctx.currentTime+.08;
+ updateRecordStatus(`Count-in: ${beats} beats · keep the instrumental in your headphones`);
+ const clickAhead=[];for(let b=0;b<beats;b++)metronomeClick(begin+(b*gap)/1000,b%4===0);
+ let elapsed=0;recTimer=setInterval(()=>{if(recorderState!=='counting')return;elapsed++;const remain=beats-Math.floor(elapsed*100/gap);$('record-timer').textContent='COUNT '+Math.max(1,remain)},100);
+ mixTimer=setTimeout(async()=>{if(recorderState!=='counting')return;clearRecordClickTimers();
+ try{const start=audioLoop.a!==null?audioLoop.a:0;recStartOffset=start;
+ // Start dry microphone capture before opening instrumental; mic stream never includes the reference audio.
+ micRecorder.start();recStartedAt=performance.now();recorderState='recording';setRecorderUI();
+ if(recReferenceType==='soundcloud'){soundcloudWidget.seekTo(start*1000);soundcloudWidget.play()}else{el.audio.currentTime=start;await el.audio.play()}
+ $('record-timer').textContent='00:00';updateRecordStatus('Recording dry vocal · the instrumental should be heard through headphones');
+ recTimer=setInterval(()=>{$('record-timer').textContent=formatTime((performance.now()-recStartedAt)/1000)},250);
+ }catch(e){console.error('Could not start take',e);updateRecordStatus('Could not start playback or microphone. Check media permissions.');stopVocalRecording()}},beats*gap+80);
+ }catch(e){console.error('Mic permission:',e);recorderState='idle';clearRecordClickTimers();if(micStream)micStream.getTracks().forEach(t=>t.stop());micStream=null;setRecorderUI();updateRecordStatus('Microphone permission denied or mic unavailable. Open the app via HTTPS and enable microphone access.');}
+}
+function stopVocalRecording(){if(recorderState==='idle')return;const wasRecording=recorderState==='recording';recorderState='idle';clearRecordClickTimers();setRecorderUI();
+ if(recReferenceType==='soundcloud'){if(soundcloudWidget)try{soundcloudWidget.pause()}catch{}}else el.audio.pause();
+ if(micRecorder&&micRecorder.state!=='inactive')try{micRecorder.stop()}catch{}else if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null}
+ updateRecordStatus(wasRecording?'Saving dry vocal take…':'Count-in cancelled');$('record-timer').textContent='00:00';
+}
+async function finaliseTake(){const stream=micStream;micStream=null;if(stream)stream.getTracks().forEach(t=>t.stop());
+ const size=recChunks.reduce((v,b)=>v+b.size,0);if(size<900){updateRecordStatus('Recording was too short. Try again.');return}
+ const blob=new Blob(recChunks,{type:micRecorder?.mimeType||recChunks[0]?.type||'audio/webm'});
+ // MediaRecorder may add encoder preroll. A user-adjustable sync slider compensates for headset latency.
+ const p=projects.find(p=>p.id===recProjectId);if(!p||!db){updateRecordStatus('Could not save take; use a supported browser with storage.');return}
+ const t={key:`${p.id}::${Date.now()}-${Math.random().toString(36).slice(2,7)}`,projectId:p.id,blob,name:`Take ${String(localTakes.length+1).padStart(2,'0')}`,created:Date.now(),startAt:recStartOffset,duration:Math.max(0,(performance.now()-recStartedAt)/1000),source:recReferenceType};
+ try{await op('takes','readwrite','put',t);if(activeId===p.id){p.selectedTake=t.key;await loadTakes(p.id);await saveNow()};updateRecordStatus(`${t.name} saved · use Preview layered mix to hear it against the beat`)}catch(e){console.error(e);updateRecordStatus('The device has insufficient storage for this vocal take. Try a shorter take.')}
+}
+async function previewMix(){if(recorderState!=='idle'){toast('Stop recording first');return}const t=selectedTake();if(!t){toast('Record and select a vocal take first');return}if(!sourceIsPresent()){toast('Attach your reference track to hear the layered mix');return}
+ stopMixPreview();if(loadedTakeKey!==t.key)await loadSelectedVocal();const vocal=$('vocal-player');
+ if(!vocal.src){toast('Selected take cannot play on this device');return}vocal.currentTime=0;
+ const slip=Number($('vocal-sync').value)/1000,at=t.startAt||0;
+ try{
+ if(isSoundcloud()){
+ if(!soundcloudReady){toast('SoundCloud is not ready');return}soundcloudWidget.seekTo(Math.max(0,at+(slip<0?-slip:0))*1000);soundcloudWidget.setVolume(Number($('music-level').value));soundcloudWidget.play();
+ }else{el.audio.currentTime=Math.max(0,at+(slip<0?-slip:0));el.audio.volume=Number($('music-level').value)/100;await el.audio.play()}
+ mixPreviewActive=true;
+ if(slip>0){mixPlayTimers.push(setTimeout(()=>{if(mixPreviewActive)vocal.play().catch(e=>toast('Vocal playback blocked by the browser'))},slip*1000))}else await vocal.play();
+ updateRecordStatus('Playing reference + selected vocal take · adjust both volume sliders');
+ }catch(e){console.error(e);toast('Playback was blocked. Tap again, or start the uploaded player once manually.')}
+}
+async function dlBlob(blob,name){if(window.AndroidExport&&window.__flowbookNativeToken){const token=window.__flowbookNativeToken,id=AndroidExport.begin(token,name,blob.type||'application/octet-stream');if(!id)throw Error('Could not create download');try{for(let pos=0;pos<blob.size;pos+=49152){const bytes=new Uint8Array(await blob.slice(pos,pos+49152).arrayBuffer());let data='';for(let i=0;i<bytes.length;i++)data+=String.fromCharCode(bytes[i]);if(!AndroidExport.append(token,id,btoa(data)))throw Error('Download write failed');if(pos%(49152*16)===0)await new Promise(resolve=>setTimeout(resolve,0))}if(!AndroidExport.finish(token,id))throw Error('Could not save download');return}catch(e){AndroidExport.abort(token,id);throw e}}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000)}
+function safeFilename(str){return String(str||'MC-flowbook').replace(/[<>:"/\\|?*\x00-\x1f]/g,'').trim().slice(0,75)||'MC-flowbook'}
+function downloadSelectedVocal(){const t=selectedTake();if(!t){toast('Select a vocal take first');return}const typ=t.blob.type;const ext=typ.includes('mp4')?'m4a':typ.includes('ogg')?'ogg':'webm';dlBlob(t.blob,`${safeFilename(getProject().name)}-${t.name.toLowerCase().replace(' ','-')}.${ext}`);toast('Separate vocal take exported (original recording format)')}
+function audioDuration(buffer){return buffer.length/buffer.sampleRate}
+async function decodeBlobAudio(blob){const AudioAPI=window.AudioContext||window.webkitAudioContext,ctx=new AudioAPI({sampleRate:44100});try{return await ctx.decodeAudioData(await blob.arrayBuffer())}finally{ctx.close().catch(()=>{})}}
+async function getReferenceBlob(p){if(!db||!p?.audioName)return null;const v=await op('audio','readonly','get',p.id);return v?.blob||null}
+async function renderMix(){const p=getProject(),t=selectedTake();if(!t)throw new Error('Select a saved vocal take first');
+ const mode=$('mix-region').value;const refBlob=mode==='vocal'?null:await getReferenceBlob(p);
+ if(!refBlob&&mode!=='vocal')throw new Error('A locally uploaded instrumental is required for mixed export. SoundCloud streams cannot be included.');
+ if(t.source==='soundcloud'&&mode!=='vocal'&&Math.abs((Number(t.startAt)||0))>0){/* reference must be the corresponding uploaded song */}
+ const voiceBuffer=await decodeBlobAudio(t.blob),refBuffer=refBlob?await decodeBlobAudio(refBlob):null,slip=Number($('vocal-sync').value)/1000;
+ const voiceStart=(t.startAt||0)+slip;
+ let begin=0,end=voiceStart+voiceBuffer.duration;
+ if(mode==='full'&&refBuffer)end=Math.max(refBuffer.duration,voiceStart+voiceBuffer.duration);
+ else if(mode==='take'&&refBuffer){begin=Math.max(0,Math.min(t.startAt||0,voiceStart));end=Math.max((t.startAt||0)+voiceBuffer.duration,voiceStart+voiceBuffer.duration)}
+ else if(mode==='vocal'){begin=0;end=voiceBuffer.duration}
+ if(end<=begin)throw new Error('This section is too short to export');if(end-begin>12*60)throw new Error('The prototype export is limited to 12 minutes per file. Choose Recorded section.');
+ const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;if(!Offline)throw new Error('Offline audio mixing is not supported on this browser.');
+ const rate=44100,offline=new Offline(2,Math.ceil((end-begin)*rate),rate);
+ const mixLimiter=offline.createDynamicsCompressor();mixLimiter.threshold.value=-7;mixLimiter.knee.value=8;mixLimiter.ratio.value=8;mixLimiter.attack.value=.006;mixLimiter.release.value=.17;mixLimiter.connect(offline.destination);
+ function place(buffer,when,gain){const node=offline.createBufferSource(),vol=offline.createGain();node.buffer=buffer;vol.gain.value=gain;node.connect(vol).connect(mixLimiter);
+   // Crop samples before the requested mix section and shift later starts into the mix timeline.
+   const overlapFrom=Math.max(begin,when);const offset=Math.max(0,begin-when);const start=Math.max(0,when-begin);
+   if(offset<buffer.duration&&start<end-begin)node.start(start,offset,Math.min(buffer.duration-offset,end-overlapFrom));}
+ if(refBuffer)place(refBuffer,0,Number($('music-level').value)/100);
+ if(mode==='vocal')place(voiceBuffer,0,Number($('voice-level').value)/100);
+ else place(voiceBuffer,voiceStart,Number($('voice-level').value)/100);
+ return offline.startRendering();
+}
+function toPCM16(samples){const out=new Int16Array(samples.length);for(let i=0;i<samples.length;i++){const x=Math.max(-1,Math.min(1,samples[i]));out[i]=x<0?x*32768:x*32767}return out}
+function wavOf(buffer){const count=buffer.length,view=new DataView(new ArrayBuffer(44+count*4));let ptr=0;
+ function str(a){for(let i=0;i<a.length;i++)view.setUint8(ptr++,a.charCodeAt(i))}
+ function u16(n){view.setUint16(ptr,n,true);ptr+=2}function u32(n){view.setUint32(ptr,n,true);ptr+=4}
+ str('RIFF');u32(36+count*4);str('WAVE');str('fmt ');u32(16);u16(1);u16(2);u32(buffer.sampleRate);u32(buffer.sampleRate*4);u16(4);u16(16);str('data');u32(count*4);
+ const a=buffer.getChannelData(0),b=buffer.getChannelData(1);for(let i=0;i<count;i++){const x=Math.max(-1,Math.min(1,a[i])),y=Math.max(-1,Math.min(1,b[i]));view.setInt16(ptr,x<0?x*32768:x*32767,true);view.setInt16(ptr+2,y<0?y*32768:y*32767,true);ptr+=4}return new Blob([view.buffer],{type:'audio/wav'})
+}
+function loadExternalScript(url){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url;script.async=true;script.onload=resolve;script.onerror=()=>reject(new Error('MP3 encoder could not load; make sure you are online, or choose WAV.'));document.head.append(script)})}
+async function loadMP3Encoder(){if(window.lamejs?.Mp3Encoder)return;await loadExternalScript('https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.all.js');if(!window.lamejs?.Mp3Encoder)throw new Error('MP3 encoder unavailable in this browser. Use WAV export.');}
+async function mp3Of(buffer){await loadMP3Encoder();const enc=new window.lamejs.Mp3Encoder(2,44100,192),data=[];const a=buffer.getChannelData(0),b=buffer.getChannelData(1);const block=1152,total=a.length;
+ for(let i=0;i<total;i+=block){const sampleA=toPCM16(a.subarray(i,i+block)),sampleB=toPCM16(b.subarray(i,i+block));const chunk=enc.encodeBuffer(sampleA,sampleB);if(chunk.length)data.push(new Uint8Array(chunk));if(i%(block*128)===0){updateRecordStatus('Encoding MP3… '+Math.round(i/total*100)+'%');await new Promise(resolve=>setTimeout(resolve,0))}}
+ const tail=enc.flush();if(tail.length)data.push(new Uint8Array(tail));return new Blob(data,{type:'audio/mpeg'})
+}
+async function exportMixedAudio(type){if(recorderState!=='idle'){toast('Stop recording first');return}if(mixExportBusy)return;mixExportBusy=true;$('mix-wav').disabled=$('mix-mp3').disabled=true;
+ try{stopMixPreview();updateRecordStatus('Preparing separate vocals and instrumental for mixdown…');
+ if(type==='mp3')await loadMP3Encoder();const audio=await renderMix();const blob=type==='wav'?wavOf(audio):await mp3Of(audio);
+ dlBlob(blob,`${safeFilename(getProject().name)}-${$('mix-region').value}-rehearsal.${type}`);
+ updateRecordStatus(`${type.toUpperCase()} rehearsal mix exported · ${formatTime(audio.duration)}`)
+ }catch(e){console.error('Export failed:',e);updateRecordStatus('Export failed: '+e.message);toast(e.message||'Could not export mix')}finally{mixExportBusy=false;$('mix-wav').disabled=$('mix-mp3').disabled=false}
+}
+window.mcFlowbookAndroidTranscript=(transcript)=>{if(transcript){insertAtCursor(String(transcript)+'\n');toast('Voice dictation added to lyrics')}};
+async function init(){initEvents();applySpeed();updatePitchLabel();updateMetronomeUI();try{db=await openDB();projects=await op('projects','readonly','getAll');$('storage-status').textContent='● Stored on device'}catch(e){console.warn('IndexedDB blocked:',e);$('storage-status').textContent='⚠ Limited storage';$('storage-status').style.color='#ffb6ba';try{projects=JSON.parse(localStorage.getItem('mcflowbook-fallback')||'[]')}catch{projects=[]}toast('Local database is unavailable: audio saving will not work')}if(!projects.length){const p=baseProject('My first MC session');projects.push(p);await saveProject(p)}projects.sort((a,b)=>b.updated-a.updated);await selectProject(projects[0].id)}
+init().catch(e=>{console.error(e);toast('App startup failed. Please try a current browser.')});
+</script>
+<aside id="iphone-install-info" role="note" hidden>
+ <strong>Install MC Flowbook on your iPhone:</strong> In Safari, tap <b>Share</b> → <b>Add to Home Screen</b> → enable <b>Open as Web App</b> → <b>Add</b>.
+ <button id="iphone-install-close" type="button" aria-label="Dismiss installation instructions">×</button>
+</aside>
+<script>
+(()=>{
+ const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)|| (navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+ const standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+ const banner=document.getElementById('iphone-install-info');
+ if(ios&&!standalone&&sessionStorage.getItem('flowbook-install-dismissed')!=='1')banner.hidden=false;
+ document.getElementById('iphone-install-close').addEventListener('click',()=>{banner.hidden=true;sessionStorage.setItem('flowbook-install-dismissed','1')});
+ if('serviceWorker' in navigator&&window.isSecureContext){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(console.warn))}
+})();
+</script>
+</body>
+</html>
