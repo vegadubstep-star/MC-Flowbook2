@@ -31,12 +31,19 @@
 </form>
 <section id="result" class="card" aria-live="polite">
 <h2 id="result-heading">Signed copy</h2><p><strong>Tester:</strong> <span id="r-name"></span></p><p><strong>Email:</strong> <span id="r-email"></span></p><p><strong>Signed at:</strong> <span id="r-date"></span></p><p id="r-kind"></p><img id="r-signature" alt="Handwritten signature" style="background:white;width:300px;max-width:100%;border-radius:8px">
-<div class="actions no-print"><button class="primary" id="save" type="button">Download signed copy (HTML)</button><button id="print" type="button">Save as PDF / Print</button></div>
+<div class="notice no-print" id="submit-status" role="status">Your signature has been recorded on this device. Please save a copy below. Automatic email delivery will become available after the owner connects the free Google receiver.</div><div class="actions no-print"><button class="primary" id="save" type="button">⬇ Download signed agreement</button><button id="print" type="button">Save as PDF / Print</button><button id="submit-email" type="button" class="hidden">Send signed agreement to Orbital Trance Records</button></div>
 <p class="small muted no-print">Keep the downloaded copy with the complete agreement. For a genuine signing workflow, a secure submission endpoint and tamper-evident audit trail would still need to be added.</p>
 </section>
+<iframe name="flowbook-nda-receiver" title="NDA submission receiver" hidden style="display:none"></iframe>
+<form id="nda-post" method="POST" target="flowbook-nda-receiver" class="hidden">
+<input type="hidden" name="fullName"><input type="hidden" name="email"><input type="hidden" name="signature"><input type="hidden" name="mode"><input type="hidden" name="agreed" value="yes"><input type="text" name="website" value="" tabindex="-1" autocomplete="off" style="display:none">
+</form>
 <p class="muted small">© Orbital Trance Records · Flowbook Lyrics. Template for testing, not legal advice; obtain legal review before use as a binding agreement.</p>
 </main>
 <script>
+// Paste your deployed Google Apps Script /exec URL between these quotes after setup.
+// Until configured, only local downloads are offered; no email is sent.
+const NDA_WEB_APP_URL = '';
 const params=new URLSearchParams(location.search),isTest=params.get('mode')!=='live';
 if(!isTest){document.getElementById('mode').textContent='BETA TESTER NDA';document.getElementById('test-note').textContent='Please keep a signed copy. IMPORTANT: This page does not automatically submit the agreement to the Owner; a secure collection process must be established before inviting real testers.';}
 const canvas=document.getElementById('signature'),ctx=canvas.getContext('2d');let drawing=false,hasStroke=false,receipt=null;
@@ -55,8 +62,27 @@ if(!receipt.name){err.textContent='Enter your full name';return}
 document.getElementById('r-name').textContent=receipt.name;document.getElementById('r-email').textContent=receipt.email;document.getElementById('r-date').textContent=new Date(receipt.at).toLocaleString('en-GB',{dateStyle:'full',timeStyle:'long'});
 document.getElementById('r-kind').textContent=isTest?'TEST ONLY — NOT A VALID TESTER SUBMISSION':'Signed locally — NOT YET SUBMITTED TO OWNER';
 document.getElementById('r-signature').src=receipt.signature;document.getElementById('result-heading').textContent=isTest?'Test signing complete':'Local signature completed';
-document.getElementById('result').style.display='block';document.getElementById('result').scrollIntoView({behavior:'smooth'});
+document.getElementById('result').style.display='block';
+const emailButton=document.getElementById('submit-email');
+if(NDA_WEB_APP_URL && /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(NDA_WEB_APP_URL)){
+  emailButton.classList.remove('hidden');
+  document.getElementById('submit-status').textContent='Signed copy created. Your browser will attempt to send it to Orbital Trance Records. Save your own copy too. The owner should verify email receipt.';
+  submitSignedCopy();
+}
+document.getElementById('result').scrollIntoView({behavior:'smooth'});
 });
+function submitSignedCopy(){
+  if(!receipt || !NDA_WEB_APP_URL)return;
+  const form=document.getElementById('nda-post');
+  form.action=NDA_WEB_APP_URL;
+  form.elements.fullName.value=receipt.name;
+  form.elements.email.value=receipt.email;
+  form.elements.signature.value=receipt.signature;
+  form.elements.mode.value=receipt.test?'test':'live';
+  document.getElementById('submit-status').textContent='Submission attempted. Ask Orbital Trance Records to verify the PDF arrived in Gmail or Drive. Keep your downloaded copy as a backup.';
+  try {form.submit()}catch(err){document.getElementById('submit-status').textContent='Could not send automatically. Download a signed copy and send it to orbitaltrancerecords@gmail.com.'}
+}
+document.getElementById('submit-email').onclick=submitSignedCopy;
 document.getElementById('print').onclick=()=>window.print();
 document.getElementById('save').onclick=()=>{if(!receipt)return;
 const agreement=document.getElementById('agreement').innerHTML;
