@@ -855,12 +855,12 @@ init().catch(e=>{console.error(e);toast('App startup failed. Please try a curren
 (()=>{
  const el=id=>document.getElementById(id);
  const templates={
-  "song-template":"[VERSE 1]\n\n[PRE-CHORUS]\n\n[CHORUS]\n\n[VERSE 2]\n\n[PRE-CHORUS]\n\n[CHORUS]\n\n[BRIDGE]\n\n[FINAL CHORUS]\n",
-  "song-verse":"[VERSE]\n\n",
-  "song-prechorus":"[PRE-CHORUS]\n\n",
-  "song-bridge":"[BRIDGE]\n\n"
- };
- for(const [id,raw] of Object.entries(templates)){el(id).addEventListener('click',()=>insertAtCursor('\n'+raw.replaceAll('\\\n','\n')+'\n'))}
+  "song-template": "[VERSE 1]\n\n[PRE-CHORUS]\n\n[CHORUS]\n\n[VERSE 2]\n\n[PRE-CHORUS]\n\n[CHORUS]\n\n[BRIDGE]\n\n[FINAL CHORUS]\n",
+  "song-verse": "[VERSE]\n\n",
+  "song-prechorus": "[PRE-CHORUS]\n\n",
+  "song-bridge": "[BRIDGE]\n\n"
+};
+ for(const [id,raw] of Object.entries(templates)){el(id).addEventListener('click',()=>insertAtCursor('\n'+raw+'\n'))}
  for(const id of ['song-style','song-mood','song-idea'])el(id).addEventListener(id==='song-idea'?'input':'change',()=>scheduleSave());
  function sendToChatGPT(review=false){
   const p=getProject(),format=el('song-style').value,mood=el('song-mood').value,idea=el('song-idea').value.trim();
