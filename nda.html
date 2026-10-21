@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1421"><title>Flowbook Lyrics | Tester NDA</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1421;--panel:#172334;--edge:#36485b;--ink:#f0f6ff;--muted:#b4c8d8;--teal:#45e8d1}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#1b4651,transparent 40%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:780px;padding:24px 15px 60px;margin:auto}h1{line-height:1.16;font-size:clamp(25px,5vw,37px);margin:7px 0 12px}h2{font-size:17px;margin:22px 0 7px}p{margin:8px 0}.brand{color:var(--teal);letter-spacing:.13em;font-size:12px;font-weight:850}.muted{color:var(--muted)}.card{background:var(--panel);border:1px solid var(--edge);padding:23px;border-radius:17px;margin:18px 0}.term{padding-bottom:10px;border-bottom:1px solid #344459}.notice{border-left:3px solid var(--teal);padding:10px 13px;background:#142e39;border-radius:5px;margin:17px 0}.test{color:#051b18;background:#53edcd;padding:7px 10px;border-radius:99px;display:inline-block;font-weight:800;font-size:12px;margin:8px 0}label{display:block;font-weight:650;margin:17px 0 6px}input:not([type=checkbox]){width:100%;padding:13px;background:#0c1626;border:1px solid #617085;color:white;border-radius:8px;font:inherit}canvas{background:#fff;border:2px solid #7a93a4;border-radius:10px;width:100%;height:180px;touch-action:none;display:block;margin-top:8px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}button{padding:12px 15px;border-radius:9px;border:1px solid #4b6675;background:#223448;color:white;font:700 14px system-ui;cursor:pointer}button.primary{background:var(--teal);color:#06211e;border:0}button:disabled{opacity:.5}.check{display:flex;align-items:flex-start;gap:10px;margin:17px 0}.check input{margin-top:5px;transform:scale(1.2)}.check label{margin:0;font-weight:500}.small{font-size:12px}.error{color:#ffc0bf}#result{display:none}.hidden{display:none!important}@media print{body{background:white!important;color:#111}main{max-width:none}.card{border:1px solid #aaa;background:white;color:#111}.brand,.muted{color:#333}.actions,form,.test,.notice,.no-print{display:none!important}#result{display:block!important}#result img{max-height:100px}#result .muted{color:#333}}
+</style></head><body><main>
+<div class="brand">ORBITAL TRANCE RECORDS · FLOWBOOK LYRICS</div>
+<h1>Confidential Tester Agreement</h1>
+<p class="muted">Please review this agreement before accessing private builds, prototypes, testing materials or non-public features of Flowbook Lyrics.</p>
+<div class="test" id="mode">TEST MODE — sample signature only</div>
+<p class="notice" id="test-note">This is a trial signing page. You can practise signing and saving a copy. A test signature is not an accepted beta tester agreement.</p>
+<section class="card" id="agreement">
+<h2>1. Parties and purpose</h2><p>This non-disclosure agreement (NDA) is between Daniel Singh, trading as or acting on behalf of Orbital Trance Records (the "Owner"), and the individual signing below (the "Tester"). The purpose is to permit confidential evaluation of the Flowbook Lyrics / MC Flowbook application ("App").</p>
+<h2>2. Confidential information</h2><p>Confidential information includes non-public builds, functionality, designs, roadmaps, source code, test credentials, unreleased images, recordings, documentation, tester communications and information clearly identified as confidential, whether communicated in writing, electronically or verbally.</p>
+<h2>3. Tester's obligations</h2><p>The Tester will use confidential information only to evaluate the App; not disclose it to other people without the Owner's written permission; not post or share screenshots, videos or builds publicly; use reasonable care to protect it; and promptly inform the Owner if there is unauthorised access or disclosure. The Tester will not redistribute test copies or reverse-engineer the App, except to the extent permitted by applicable law.</p>
+<h2>4. Exclusions</h2><p>The obligations do not apply to information that was already lawfully known without confidentiality restrictions, becomes public without breach, is independently developed without using confidential information, or is lawfully received from an unrestricted third party. Legally required disclosures are permitted. Nothing in this agreement restricts protected disclosures to authorities, the reporting of suspected unlawful conduct or any other rights that cannot lawfully be waived.</p>
+<h2>5. Ownership and feedback</h2><p>All rights to the App and provided materials remain with their respective owners. No licence is granted except the limited right to test the App. Tester may provide optional feedback; the Owner may use that feedback to improve the App without payment, but does not acquire ownership of the Tester's separately created lyrics, recordings or other original content.</p>
+<h2>6. Duration and deletion</h2><p>The Tester will keep the information confidential during testing and for two years after the last disclosure. Any information legally qualifying as a trade secret remains protected for as long as it retains that status under applicable law. Upon request, the Tester will stop testing and delete or return confidential test materials, except where retention is required by law.</p>
+<h2>7. No guarantee and governing law</h2><p>Pre-release software is provided for evaluation and may contain errors. The parties intend this agreement to be legally binding. It is governed by the laws of England and Wales, subject to any mandatory protections that apply.</p>
+<h2>8. Electronic signatures</h2><p>The Tester agrees that entering their name, ticking the consent box and drawing a signature is intended as electronic acceptance of this agreement. Each party should retain a complete dated copy. Electronic signatures are generally capable of legal effect, but identity, consent and the evidence retained may affect enforceability.</p>
+</section>
+<form id="sign-form" class="card">
+<h2>Tester's details and signature</h2>
+<label for="full-name">Full legal name</label><input id="full-name" autocomplete="name" required maxlength="120" placeholder="Enter your full name">
+<label for="email">Email address</label><input id="email" type="email" autocomplete="email" required maxlength="180" placeholder="example@email.com">
+<label for="signature">Draw your signature with your finger or mouse</label><canvas id="signature" aria-label="Signature drawing area"></canvas>
+<div class="actions"><button type="button" id="clear">Clear signature</button></div>
+<div class="check"><input type="checkbox" id="confirm" required><label for="confirm">I have read the agreement, understand its terms and consent to signing electronically.</label></div>
+<div class="small muted">No information is sent to a server by this demonstration. You must explicitly download and share the signed copy. This is not a DocuSign-certified audit trail.</div>
+<div id="error" class="error" role="alert"></div>
+<div class="actions"><button class="primary" type="submit">Sign agreement</button></div>
+</form>
+<section id="result" class="card" aria-live="polite">
+<h2 id="result-heading">Signed copy</h2><p><strong>Tester:</strong> <span id="r-name"></span></p><p><strong>Email:</strong> <span id="r-email"></span></p><p><strong>Signed at:</strong> <span id="r-date"></span></p><p id="r-kind"></p><img id="r-signature" alt="Handwritten signature" style="background:white;width:300px;max-width:100%;border-radius:8px">
+<div class="actions no-print"><button class="primary" id="save" type="button">Download signed copy (HTML)</button><button id="print" type="button">Save as PDF / Print</button></div>
+<p class="small muted no-print">Keep the downloaded copy with the complete agreement. For a genuine signing workflow, a secure submission endpoint and tamper-evident audit trail would still need to be added.</p>
+</section>
+<p class="muted small">© Orbital Trance Records · Flowbook Lyrics. Template for testing, not legal advice; obtain legal review before use as a binding agreement.</p>
+</main>
+<script>
+const params=new URLSearchParams(location.search),isTest=params.get('mode')!=='live';
+if(!isTest){document.getElementById('mode').textContent='BETA TESTER NDA';document.getElementById('test-note').textContent='Please keep a signed copy. IMPORTANT: This page does not automatically submit the agreement to the Owner; a secure collection process must be established before inviting real testers.';}
+const canvas=document.getElementById('signature'),ctx=canvas.getContext('2d');let drawing=false,hasStroke=false,receipt=null;
+function resize(){const old=hasStroke?canvas.toDataURL():null;const bounds=canvas.getBoundingClientRect();canvas.width=Math.round(bounds.width*devicePixelRatio);canvas.height=Math.round(180*devicePixelRatio);ctx.scale(devicePixelRatio,devicePixelRatio);ctx.strokeStyle='#102638';ctx.lineWidth=2.7;ctx.lineJoin='round';ctx.lineCap='round';if(old){const im=new Image();im.onload=()=>ctx.drawImage(im,0,0,bounds.width,180);im.src=old;}}
+resize();window.addEventListener('resize',resize);
+function point(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+canvas.addEventListener('pointerdown',e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);drawing=true;hasStroke=true;const p=point(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x+.1,p.y+.1);ctx.stroke()});
+canvas.addEventListener('pointermove',e=>{if(!drawing)return;e.preventDefault();const p=point(e);ctx.lineTo(p.x,p.y);ctx.stroke()});
+['pointerup','pointercancel','lostpointercapture'].forEach(event=>canvas.addEventListener(event,()=>drawing=false));
+document.getElementById('clear').onclick=()=>{ctx.clearRect(0,0,canvas.width,canvas.height);hasStroke=false};
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+document.getElementById('sign-form').addEventListener('submit',e=>{e.preventDefault();const err=document.getElementById('error');err.textContent='';if(!hasStroke){err.textContent='Please draw your signature first.';return}
+if(!e.currentTarget.reportValidity())return;
+receipt={name:document.getElementById('full-name').value.trim(),email:document.getElementById('email').value.trim(),at:new Date().toISOString(),signature:canvas.toDataURL('image/png'),test:isTest};
+if(!receipt.name){err.textContent='Enter your full name';return}
+document.getElementById('r-name').textContent=receipt.name;document.getElementById('r-email').textContent=receipt.email;document.getElementById('r-date').textContent=new Date(receipt.at).toLocaleString('en-GB',{dateStyle:'full',timeStyle:'long'});
+document.getElementById('r-kind').textContent=isTest?'TEST ONLY — NOT A VALID TESTER SUBMISSION':'Signed locally — NOT YET SUBMITTED TO OWNER';
+document.getElementById('r-signature').src=receipt.signature;document.getElementById('result-heading').textContent=isTest?'Test signing complete':'Local signature completed';
+document.getElementById('result').style.display='block';document.getElementById('result').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('print').onclick=()=>window.print();
+document.getElementById('save').onclick=()=>{if(!receipt)return;
+const agreement=document.getElementById('agreement').innerHTML;
+const content='<!doctype html><html lang="en"><meta charset="utf-8"><title>Flowbook signed NDA copy</title><style>body{font:16px/1.5 Arial,sans-serif;max-width:760px;margin:30px auto;padding:12px;color:#152334}h2{margin-top:24px}img{max-width:310px;border:1px solid #ddd}</style><h1>Flowbook Lyrics — Tester NDA '+(receipt.test?'(TEST ONLY)':'')+'</h1><section>'+agreement+'</section><hr><h2>Electronic signature record</h2><p><b>Name:</b> '+escapeHTML(receipt.name)+'</p><p><b>Email:</b> '+escapeHTML(receipt.email)+'</p><p><b>Signed (UTC):</b> '+escapeHTML(receipt.at)+'</p><p><b>Status:</b> '+(receipt.test?'TEST ONLY — not a tester agreement':'SIGNED LOCALLY — not submitted to Owner')+'</p><img alt="Signature" src="'+receipt.signature+'"><p>This copy was generated in the signer\'s browser. It is not a verified identity or tamper-evident audit record.</p></html>';
+const blob=new Blob([content],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Flowbook-NDA-'+(receipt.test?'TEST-':'')+receipt.name.replace(/[^a-z0-9-]/gi,'-').slice(0,55)+'.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000)};
+</script></body></html>
